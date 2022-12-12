@@ -14,16 +14,11 @@ let isDrag = false;
 // an array to contain all the blocks created
 let blocks = [];
 
-let propeller;
-let angle = 0;
-
-let poly, ballImg, blockImg;
-let magnet;
+let poly;
 
 function preload() {
-	poly = loadImage("./img/poly.png");
-	ballImg = loadImage("./img/ball.png");
-	boxImg = loadImage("./img/box.png");
+	//Beispiel png Load
+	//poly = loadImage("./img/poly.png");
 }
 
 function setup() {

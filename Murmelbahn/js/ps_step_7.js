@@ -16,6 +16,8 @@ let blocks = [];
 
 let poly;
 
+let auto;
+
 function preload() {
 	//Beispiel png Load
 	//poly = loadImage("./img/poly.png");

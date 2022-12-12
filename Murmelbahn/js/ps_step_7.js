@@ -20,8 +20,6 @@ let angle = 0;
 let poly, ballImg, blockImg;
 let magnet;
 
-let trap;
-
 function preload() {
 	poly = loadImage("./img/poly.png");
 	ballImg = loadImage("./img/ball.png");

@@ -1,5 +1,3 @@
-Homeworks.aufgabe = 7;
-
 const Engine = Matter.Engine;
 const Runner = Matter.Runner;
 const Bodies = Matter.Bodies;
@@ -150,7 +148,6 @@ function setup() {
 
 function draw() {
 	clear();
-	frameRate(5);
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
 }

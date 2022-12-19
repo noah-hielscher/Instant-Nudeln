@@ -152,10 +152,13 @@ function draw() {
 	mouse.draw();
 }
 
+//das "event" muss drinnen stehen, damit sich die Seite nicht durch Space bewegt
+
 function onKeyDown(event) {
 	switch (event.key) {
 		case " ":
 			console.log("SPACE");
+
 			if (ball.body.velocity.y < -3.96) {
 				console.log("speed erreicht");
 			}
@@ -166,6 +169,10 @@ function onKeyDown(event) {
 					x: 0.007,
 					y: -0.05,
 				});
+				setTimeout(() => {
+					console.log("TIMEOUT");
+					trap2.attributes.color = "green";
+				}, 500);
 			}
 			break;
 		default:

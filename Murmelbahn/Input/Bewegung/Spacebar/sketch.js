@@ -169,10 +169,6 @@ function onKeyDown(event) {
 					x: 0.007,
 					y: -0.05,
 				});
-				setTimeout(() => {
-					console.log("TIMEOUT");
-					trap2.attributes.color = "green";
-				}, 500);
 			}
 			break;
 		default:

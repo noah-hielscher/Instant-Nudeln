@@ -56,7 +56,7 @@ function setup() {
 				h: 10,
 				color: "gray",
 			},
-			{ angle: PI / 3, isStatic: true }
+			{ angle: PI / 3, restitution: 2, isStatic: true }
 		)
 	);
 
@@ -70,7 +70,7 @@ function setup() {
 				h: 10,
 				color: "gray",
 			},
-			{ angle: -PI / 3, isStatic: true }
+			{ angle: -PI / 3, restitution: 2, isStatic: true }
 		)
 	);
 

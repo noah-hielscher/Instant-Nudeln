@@ -48,13 +48,27 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: windowWidth + 100,
-				y: 450,
-				w: 800,
-				h: 10,
-				color: "gray",
+				x: 1220,
+				y: 530,
+				w: 50,
+				h: 5,
+				color: "red",
 			},
-			{ angle: -PI / 3, restitution: 2, isStatic: true }
+			{ angle: -PI / 4, restitution: 3, isStatic: true }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1220,
+				y: 380,
+				w: 50,
+				h: 5,
+				color: "red",
+			},
+			{ angle: -PI / 4, restitution: 3, isStatic: true }
 		)
 	);
 

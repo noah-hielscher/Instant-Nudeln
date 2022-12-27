@@ -51,9 +51,6 @@ function setup() {
 			r: 100,
 			color: "grey",
 			attraction: 0.45e-5,
-			trigger: (Ball, magnet) => {
-				console.log("trigger");
-			},
 		},
 		{ isStatic: true }
 	);

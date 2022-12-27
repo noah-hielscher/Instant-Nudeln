@@ -4,12 +4,20 @@ let magnet;
 let boxes;
 let blocks = [];
 
+let polygon;
+let ground;
+
 function setup() {
-	const canvas = createCanvas(800, 600);
-	console.log("Consolen Check");
+	const canvas = createCanvas(1280, 720);
 	// create an engine
 	let engine = Matter.Engine.create();
 	let world = engine.world;
+
+	polygon = new PolygonFromSVG(
+		world,
+		{ x: 480, y: 200, fromFile: "./path.svg", scale: 0.8, color: "white" },
+		{ isStatic: true, friction: 0.0 }
+	);
 
 	blocks.push(
 		new BlockCore(
@@ -98,4 +106,5 @@ function draw() {
 	magnet.attract();
 	magnet.draw();
 	mouse.draw();
+	polygon.draw();
 }

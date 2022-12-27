@@ -31,7 +31,7 @@ function setup() {
 		"gray",
 		color(Math.random() * 256, Math.random() * 256, Math.random() * 256),
 	];
-	let canvas = createCanvas(1480, 1020);
+	let canvas = createCanvas(1280, 720);
 	canvas.parent("thecanvas");
 
 	engine = Engine.create();
@@ -40,14 +40,20 @@ function setup() {
 	// use svg file to create the corresponding polygon
 	polygon = new PolygonFromSVG(
 		world,
-		{ x: 480, y: 200, fromFile: "./imh/path.svg", scale: 0.8, color: "white" },
+		{
+			x: 480,
+			y: 200,
+			fromFile: "./imh/path.svg",
+			scale: 0.8,
+			color: "white",
+		},
 		{ isStatic: true, friction: 0.0 }
 	);
 
-	new BlocksFromSVG(world, './img/Clouds.svg', blocks, {
-		isStatic: true
-	  });
-/*
+	new BlocksFromSVG(world, "./img/Clouds.svg", blocks, {
+		isStatic: true,
+	});
+	/*
 	  blocks.push(
 		new BlockCore(
 			world,
@@ -107,7 +113,6 @@ function setup() {
 			frictionAir: 0.0,
 		}
 	);
-
 
 	blocks.push(ball);
 

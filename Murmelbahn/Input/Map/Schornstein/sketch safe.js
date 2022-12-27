@@ -1,10 +1,11 @@
+const Events = Matter.Events;
+
 let magnet;
 let boxes;
 let blocks = [];
 
 function setup() {
-	const canvas = createCanvas(800, 600);
-
+	const canvas = createCanvas(1280, 720);
 	// create an engine
 	let engine = Matter.Engine.create();
 	let world = engine.world;
@@ -18,6 +19,11 @@ function setup() {
 				w: 900,
 				h: 20,
 				color: "red",
+				trigger: () => {
+					console.log("ttt");
+					//Magnet wird ausgeschgalten
+					console.log((magnet.attributes.attraction = false));
+				},
 			},
 			{ isStatic: true }
 		)
@@ -59,6 +65,19 @@ function setup() {
 
 	// add a mouse to manipulate Matter objects
 	mouse = new Mouse(engine, canvas, { stroke: "magenta", strokeWeight: 2 });
+
+	// process collisions - check whether block "Murmel" hits another Block
+	Events.on(engine, "collisionStart", function (event) {
+		var pairs = event.pairs;
+		pairs.forEach((pair, i) => {
+			if (pair.bodyA.label == "Murmel") {
+				pair.bodyA.plugin.block.collideWith(pair.bodyB.plugin.block);
+			}
+			if (pair.bodyB.label == "Murmel") {
+				pair.bodyB.plugin.block.collideWith(pair.bodyA.plugin.block);
+			}
+		});
+	});
 
 	// run the engine
 	Matter.Runner.run(engine);

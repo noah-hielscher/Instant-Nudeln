@@ -44,34 +44,6 @@ function setup() {
 		{ isStatic: true, friction: 0.0 }
 	);
 
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: 1220,
-				y: 530,
-				w: 50,
-				h: 5,
-				color: "red",
-			},
-			{ angle: -PI / 4, restitution: 3, isStatic: true }
-		)
-	);
-
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: 1220,
-				y: 380,
-				w: 50,
-				h: 5,
-				color: "red",
-			},
-			{ angle: -PI / 4, restitution: 3, isStatic: true }
-		)
-	);
-
 	// the ball has a label and can react on collisions
 	ball = new Ball(
 		world,

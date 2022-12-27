@@ -1,60 +1,94 @@
-Matter.use("matter-wrap");
-
 const Engine = Matter.Engine;
 const Runner = Matter.Runner;
 const Bodies = Matter.Bodies;
 const Events = Matter.Events;
 const World = Matter.World;
-let colors;
 
 // the Matter engine to animate the world
 let engine;
 let world;
 let mouse;
-let ball;
 let isDrag = false;
 // an array to contain all the blocks created
 let blocks = [];
-let trap;
-let lift;
 
-let polygon;
-let ground;
+let propeller;
+let angle = 0;
 
-let liftMove = -1;
+let puzzle;
+let magnet;
+let Magnet;
 
 function setup() {
-	colors = [
-		"gray",
-		"gray",
-		"gray",
-		"gray",
-		color(Math.random() * 256, Math.random() * 256, Math.random() * 256),
-	];
-	let canvas = createCanvas(1280, 720);
+	let canvas = createCanvas(windowWidth, windowHeight);
 	canvas.parent("thecanvas");
 
 	engine = Engine.create();
 	world = engine.world;
 
-	// use svg file to create the corresponding polygon
-	polygon = new PolygonFromSVG(
-		world,
-		{ x: 480, y: 200, fromFile: "./path.svg", scale: 0.8, color: "white" },
-		{ isStatic: true, friction: 0.0 }
+	// create some blocks
+	// the blue box triggers a function on collisions
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 200,
+				y: 200,
+				w: 60,
+				h: 60,
+				color: "blue",
+				trigger: (ball, block) => {
+					// console.log("Trigger ", ball, block, puzzle);
+					puzzle.attributes.color = "magenta";
+				},
+			},
+			{ isStatic: false, density: 0.5 }
+		)
 	);
+
+	const fixed1 = new Block(
+		world,
+		{
+			x: 700,
+			y: 200,
+			w: 40,
+			h: 40,
+			color: "cyan",
+		},
+		{ isStatic: false }
+	);
+	fixed1.constrainTo(null, {
+		pointB: { x: 900, y: 300 },
+		length: 300,
+		draw: true,
+	});
+	blocks.push(fixed1);
+
+	const fixed2 = new Block(
+		world,
+		{
+			x: 800,
+			y: 200,
+			w: 40,
+			h: 40,
+			color: "cyan",
+		},
+		{ isStatic: false }
+	);
+	fixed2.constrainTo(fixed1, { length: 150, stiffness: 0.1 });
+	blocks.push(fixed2);
 
 	blocks.push(
 		new BlockCore(
 			world,
 			{
-				x: 1220,
-				y: 530,
-				w: 50,
-				h: 5,
-				color: "red",
+				x: windowWidth / 2,
+				y: 800,
+				w: windowWidth,
+				h: 10,
+				color: "gray",
 			},
-			{ angle: -PI / 4, restitution: 3, isStatic: true }
+			{ isStatic: true }
 		)
 	);
 
@@ -62,35 +96,114 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: 1220,
-				y: 380,
-				w: 50,
-				h: 5,
-				color: "red",
+				x: -100,
+				y: 450,
+				w: 800,
+				h: 10,
+				color: "gray",
 			},
-			{ angle: -PI / 4, restitution: 3, isStatic: true }
+			{ angle: PI / 3, isStatic: true }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: windowWidth + 100,
+				y: 450,
+				w: 800,
+				h: 10,
+				color: "gray",
+			},
+			{ angle: -PI / 3, isStatic: true }
 		)
 	);
 
 	// the ball has a label and can react on collisions
-	ball = new Ball(
+	blocks.push(
+		new Ball(
+			world,
+			{
+				x: 300,
+				y: 300,
+				r: 30,
+				color: "magenta",
+			},
+			{ label: "Murmel" }
+		)
+	);
+
+	// create a rotating block - propeller
+	propeller = new Block(
 		world,
 		{
-			x: 200,
-			y: 80,
-			r: 10,
-			color: "blue",
+			x: 640,
+			y: 440,
+			w: 100,
+			h: 5,
+			color: "white",
 		},
-		{
-			label: "Murmel",
-			isStatic: false,
-			density: 0.001,
-			restitution: 0.2,
-			friction: 0.0,
-			frictionAir: 0.0,
-		}
+		{ isStatic: true }
 	);
-	blocks.push(ball);
+
+	// create a body from points
+
+	let ball2 = new Ball(
+		world,
+		{
+			x: 300,
+			y: 300,
+			r: 30,
+			color: "white",
+		},
+		{ isSensor: true }
+	);
+	ball2.constrainTo(puzzle, {
+		length: 20,
+		stiffness: 0.1,
+		draw: true,
+		color: "green",
+	});
+	blocks.push(ball2);
+
+	magnet = new Magnet(
+		world,
+		{
+			x: 1000,
+			y: 400,
+			r: 30,
+			color: "blue",
+			attraction: 0.45e-5,
+		},
+		{ isStatic: true }
+	);
+	blocks.push(magnet);
+
+	// create a group of identical bodies
+	let stack = new Stack(
+		world,
+		{
+			x: 550,
+			y: 100,
+			cols: 10,
+			rows: 10,
+			colGap: 5,
+			rowGap: 5,
+			color: "red",
+			create: (bx, by) => Bodies.circle(bx, by, 10, { restitution: 0.9 }),
+		},
+		{}
+	);
+	blocks.push(stack);
+
+	magnet.addAttracted(stack.body.bodies);
+
+	// add box, ball, ramp and ground
+	blocks.push(
+		new Block(world, { x: 200, y: 0, w: 64, h: 64, image: boxImg })
+	);
+	blocks.push(new Ball(world, { x: 100, y: 50, r: 45, image: ballImg }));
 
 	// add a mouse so that we can manipulate Matter objects
 	mouse = new Mouse(engine, canvas, { stroke: "blue", strokeWeight: 3 });
@@ -111,17 +224,8 @@ function setup() {
 					r: 15,
 					color: "yellow",
 				},
-				{
-					isStatic: false,
-					restitution: 0.9,
-					label: "Murmel",
-					density: 0.5,
-				}
+				{ isStatic: false, restitution: 0.9, label: "Murmel" }
 			);
-			Matter.Body.applyForce(ball.body, ball.body.position, {
-				x: 0.2,
-				y: -2,
-			});
 			blocks.push(ball);
 		}
 		isDrag = false;
@@ -141,34 +245,20 @@ function setup() {
 	});
 	// run the engine
 	Runner.run(engine);
-	document.addEventListener("keydown", onKeyDown);
 }
 
 function draw() {
-	background("black");
+	background(0, 20);
+	// animate attracted blocks
+	magnet.attract();
+
+	// animate angle property of propeller
+	Matter.Body.setAngle(propeller.body, angle);
+	Matter.Body.setAngularVelocity(propeller.body, 0.15);
+	angle += 0.07;
+
+	propeller.draw();
+
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
-	polygon.draw();
-}
-
-function onKeyDown(event) {
-	switch (event.key) {
-		case " ":
-			console.log("SPACE");
-
-			if (ball.body.velocity.y < -3.96) {
-				console.log("speed erreicht");
-			}
-			if (ball.body.velocity.y > -3.96) {
-				console.log("speed wir derhöht");
-				event.preventDefault();
-				Matter.Body.applyForce(ball.body, ball.body.position, {
-					x: 0.0007,
-					y: -0.005,
-				});
-			}
-			break;
-		default:
-			console.log(event.key);
-	}
 }

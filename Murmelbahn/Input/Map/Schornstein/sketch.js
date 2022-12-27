@@ -26,7 +26,7 @@ function setup() {
 	ball = new Ball(
 		world,
 		{
-			x: 300,
+			x: 100,
 			y: 80,
 			r: 30,
 			color: "blue",

@@ -22,6 +22,7 @@ function setup() {
 				color: "red",
 				trigger: (ball, block) => {
 					console.log("ttt");
+					console.log((magnet.attributes.attraction = false));
 				},
 			},
 			{ isStatic: true }

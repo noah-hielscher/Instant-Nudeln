@@ -20,8 +20,9 @@ function setup() {
 				w: 900,
 				h: 20,
 				color: "red",
-				trigger: (ball, block) => {
+				trigger: () => {
 					console.log("ttt");
+					//Magnet wird ausgeschgalten
 					console.log((magnet.attributes.attraction = false));
 				},
 			},

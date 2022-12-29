@@ -20,6 +20,14 @@ let magnet;
 
 let liftMove = -1;
 
+let normal;
+let blase;
+
+function preload() {
+	normal = loadImage("./normal.png");
+	blase = loadImage("./blase.png");
+}
+
 function setup() {
 	colors = [
 		"gray",
@@ -82,6 +90,7 @@ function setup() {
 		{
 			x: 300,
 			y: 80,
+			image: normal,
 			r: 30,
 			color: "blue",
 		},
@@ -107,7 +116,7 @@ function setup() {
 				color: "red",
 				trigger: () => {
 					console.log("magnet an");
-					ball.attributes.color = "black";
+					ball.attributes.image = blase;
 					//Magnet wird ausgeschgalten
 					magnet.addAttracted(ball);
 				},
@@ -127,7 +136,7 @@ function setup() {
 			attraction: 0.1e-4,
 			trigger: () => {
 				console.log("magnet aus");
-				ball.attributes.color = "blue";
+				ball.attributes.image = normal;
 				//Magnet wird ausgeschgalten
 				magnet.attributes.attraction = 0.0;
 			},

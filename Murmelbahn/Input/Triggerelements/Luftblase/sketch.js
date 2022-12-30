@@ -49,7 +49,7 @@ function setup() {
 				x: windowWidth / 2,
 				y: 800,
 				w: windowWidth,
-				h: 10,
+				h: 40,
 				color: "gray",
 			},
 			{ isStatic: true }
@@ -91,8 +91,8 @@ function setup() {
 			x: 300,
 			y: 80,
 			image: normal,
-			r: 30,
-			color: "blue",
+			color: "white",
+			r: 33,
 		},
 		{
 			label: "Murmel",
@@ -110,7 +110,7 @@ function setup() {
 			world,
 			{
 				x: 800,
-				y: 800,
+				y: 770,
 				w: 100,
 				h: 20,
 				color: "red",

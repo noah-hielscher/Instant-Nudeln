@@ -24,14 +24,14 @@ let ground;
 
 let liftMove = -1;
 
+let img;
+function preload() {
+	img = loadImage("./steine.jpg");
+}
+
 function setup() {
-	colors = [
-		"gray",
-		"gray",
-		"gray",
-		"gray",
-		color(Math.random() * 256, Math.random() * 256, Math.random() * 256),
-	];
+	image(img, 0, 0);
+
 	let canvas = createCanvas(1280, 720);
 	canvas.parent("thecanvas");
 

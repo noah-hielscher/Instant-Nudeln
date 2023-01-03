@@ -1,0 +1,12 @@
+Achtung: 
+
+zu kopieren:
+calss Ball.js 
+
+blase.png
+normal.png
+
+index.html
+
+pathei.svg
+

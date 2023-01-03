@@ -23,6 +23,8 @@ let liftMove = -1;
 let normal;
 let blase;
 
+let ei;
+
 function preload() {
 	normal = loadImage("./normal.png");
 	blase = loadImage("./blase.png");
@@ -41,6 +43,19 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
+
+	ei = new PolygonFromSVG(
+		world,
+		{
+			x: 480,
+			y: 200,
+			image: normal,
+			fromFile: "./pathei.svg",
+			scale: 0.8,
+			color: "black",
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
 
 	blocks.push(
 		new BlockCore(
@@ -91,8 +106,9 @@ function setup() {
 			x: 300,
 			y: 80,
 			image: normal,
+			fromFile: "./pathei.svg",
 			color: "white",
-			r: 33,
+			r: 3,
 		},
 		{
 			label: "Murmel",
@@ -204,6 +220,7 @@ function draw() {
 	mouse.draw();
 	magnet.attract();
 	magnet.draw();
+	ei.draw();
 }
 
 //das "event" muss drinnen stehen, damit sich die Seite nicht durch Space bewegt

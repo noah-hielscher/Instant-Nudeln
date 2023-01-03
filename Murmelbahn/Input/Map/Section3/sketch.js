@@ -24,19 +24,16 @@ let ground;
 
 let liftMove = -1;
 
-let img;
-function preload() {
-	img = loadImage("./steine.jpg");
-}
-
 function setup() {
-	image(img, 0, 0);
-
 	let canvas = createCanvas(1280, 720);
 	canvas.parent("thecanvas");
 
 	engine = Engine.create();
 	world = engine.world;
+
+	loadImage("/steine.jpg", (img) => {
+		image(img, 0, 0);
+	});
 
 	// use svg file to create the corresponding polygon
 	kamin1 = new PolygonFromSVG(

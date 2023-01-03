@@ -18,7 +18,8 @@ let blocks = [];
 let trap;
 let lift;
 
-let polygon;
+let kamin1;
+let kamin2;
 let ground;
 
 let liftMove = -1;
@@ -38,9 +39,27 @@ function setup() {
 	world = engine.world;
 
 	// use svg file to create the corresponding polygon
-	polygon = new PolygonFromSVG(
+	kamin1 = new PolygonFromSVG(
 		world,
-		{ x: 480, y: 200, fromFile: "./path.svg", scale: 0.8, color: "white" },
+		{
+			x: windowWidth / 2,
+			y: 0,
+			fromFile: "./kamin1.svg",
+			scale: 1,
+			color: "white",
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+
+	kamin2 = new PolygonFromSVG(
+		world,
+		{
+			x: windowWidth / 2,
+			y: 500,
+			fromFile: "./kamin2.svg",
+			scale: 1,
+			color: "white",
+		},
 		{ isStatic: true, friction: 0.0 }
 	);
 
@@ -120,7 +139,8 @@ function draw() {
 	background("black");
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
-	polygon.draw();
+	kamin1.draw();
+	kamin2.draw();
 }
 
 //das "event" muss drinnen stehen, damit sich die Seite nicht durch Space bewegt

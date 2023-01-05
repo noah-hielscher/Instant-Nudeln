@@ -59,12 +59,23 @@
 		></script>
 		<style>
 			body {
-				padding: 0;
-				margin: 0;
+				padding: 0px;
+				margin: 0px;
+			}
+
+			#sprite-background {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 600px;
+				height: 385px;
+				background: url("background.png") no-repeat;
+				z-index: -1;
 			}
 		</style>
 	</head>
 	<body>
+		<div id="sprite-background"></div>
 		<div id="thecanvas"></div>
 	</body>
 </html>

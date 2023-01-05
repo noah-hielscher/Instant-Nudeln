@@ -29,13 +29,6 @@ function preload() {
 }
 
 function setup() {
-	colors = [
-		"gray",
-		"gray",
-		"gray",
-		"gray",
-		color(Math.random() * 256, Math.random() * 256, Math.random() * 256),
-	];
 	let canvas = createCanvas(windowWidth, windowHeight);
 	canvas.parent("thecanvas");
 

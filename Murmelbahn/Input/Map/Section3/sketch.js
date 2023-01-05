@@ -19,13 +19,11 @@ let trap;
 let lift;
 
 let kamin1;
-let ground;
 
 let liftMove = -1;
 
 function setup() {
-	let canvas = createCanvas(1280, 720);
-	canvas.parent("thecanvas");
+	const canvas = createCanvas(1280, 720);
 
 	engine = Engine.create();
 	world = engine.world;
@@ -38,7 +36,6 @@ function setup() {
 			y: 360,
 			fromFile: "./kamin1.svg",
 			scale: 1,
-			color: "white",
 		},
 		{ isStatic: true, friction: 0.0 }
 	);

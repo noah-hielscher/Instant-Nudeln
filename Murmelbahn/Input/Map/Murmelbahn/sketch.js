@@ -82,7 +82,7 @@ function setup() {
 }
 
 function scene1() {
-	//sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
+	sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
 }
 
 function scene2() {
@@ -112,8 +112,8 @@ function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
-	ei.draw();
-	kamin1.draw();
+	//ei.draw();
+	//kamin1.draw();
 }
 
 function onKeyDown(event) {

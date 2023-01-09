@@ -22,11 +22,32 @@ let kamin1;
 
 let liftMove = -1;
 
+let normal;
+
+let ei;
+
+function preload() {
+	normal = loadImage("./normal.png");
+}
+
 function setup() {
 	const canvas = createCanvas(1280, 720);
 
 	engine = Engine.create();
 	world = engine.world;
+
+	ei = new PolygonFromSVG(
+		world,
+		{
+			x: 480,
+			y: 200,
+			image: normal,
+			fromFile: "./pathei.svg",
+			scale: 1,
+			color: "black",
+		},
+		{ label: "Murmel", isStatic: false, friction: 1.0, density: 0.01 }
+	);
 
 	// use svg file to create the corresponding polygon
 	kamin1 = new PolygonFromSVG(
@@ -117,6 +138,7 @@ function draw() {
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
 	kamin1.draw();
+	ei.draw();
 }
 
 //das "event" muss drinnen stehen, damit sich die Seite nicht durch Space bewegt
@@ -126,15 +148,15 @@ function onKeyDown(event) {
 		case " ":
 			console.log("SPACE");
 
-			if (ball.body.velocity.y < -3.96) {
+			if (ei.body.velocity.y < -3.96) {
 				console.log("speed erreicht");
 			}
-			if (ball.body.velocity.y > -3.96) {
+			if (ei.body.velocity.y > -3.96) {
 				console.log("speed wir derhöht");
 				event.preventDefault();
-				Matter.Body.applyForce(ball.body, ball.body.position, {
-					x: 0.0007,
-					y: -0.005,
+				Matter.Body.applyForce(ei.body, ei.body.position, {
+					x: 1.0,
+					y: -0.5,
 				});
 			}
 			break;

@@ -90,7 +90,7 @@ function setup() {
 }
 
 function scene1() {
-	sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
+	sceneBack.style["background"] = 'url("./frame1/background.png") no-repeat';
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -107,7 +107,7 @@ function scene1() {
 }
 
 function scene2() {
-	sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
+	sceneBack.style["background"] = 'url("./frame2/background.png") no-repeat';
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -138,8 +138,6 @@ function scene3() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
-
-	//Pfad
 
 	//Pusher
 	blocks.push(
@@ -239,7 +237,7 @@ function onKeyDown(event) {
 		case " ":
 			console.log("SPACE");
 			event.preventDefault();
-			Matter.Body.applyForce(ball.body, ball.body.position, {
+			Matter.Body.applyForce(ei.body, ei.body.position, {
 				x: 0.0,
 				y: -0.05,
 			});

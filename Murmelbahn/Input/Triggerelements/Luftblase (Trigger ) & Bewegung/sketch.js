@@ -47,7 +47,7 @@ function setup() {
 			scale: 0.8,
 			color: "black",
 		},
-		{ label: "Murmel", isStatic: false, friction: 0.05, density: 0.0001 }
+		{ label: "Murmel", isStatic: false, friction: 1.0, density: 0.01 }
 	);
 
 	blocks.push(
@@ -223,8 +223,8 @@ function onKeyDown(event) {
 				console.log("speed wir derhöht");
 				event.preventDefault();
 				Matter.Body.applyForce(ei.body, ei.body.position, {
-					x: 0.007,
-					y: -0.009,
+					x: 1.0,
+					y: -0.5,
 				});
 			}
 			break;

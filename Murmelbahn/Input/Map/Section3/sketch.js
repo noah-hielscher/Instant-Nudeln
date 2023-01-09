@@ -39,8 +39,8 @@ function setup() {
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 480,
-			y: 200,
+			x: 880,
+			y: 0,
 			image: normal,
 			fromFile: "./pathei.svg",
 			scale: 1,
@@ -61,25 +61,18 @@ function setup() {
 		{ isStatic: true, friction: 0.0 }
 	);
 
-	// the ball has a label and can react on collisions
-	ball = new Ball(
-		world,
-		{
-			x: 200,
-			y: 80,
-			r: 10,
-			color: "blue",
-		},
-		{
-			label: "Murmel",
-			isStatic: false,
-			density: 0.001,
-			restitution: 0.2,
-			friction: 0.0,
-			frictionAir: 0.0,
-		}
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 800,
+				y: 30,
+				w: 80,
+				h: 10,
+			},
+			{ angle: PI / -2, isStatic: true }
+		)
 	);
-	blocks.push(ball);
 
 	// add a mouse so that we can manipulate Matter objects
 	mouse = new Mouse(engine, canvas, { stroke: "blue", strokeWeight: 3 });

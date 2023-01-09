@@ -46,7 +46,7 @@ function setup() {
 			scale: 1,
 			color: "black",
 		},
-		{ label: "Murmel", isStatic: false, friction: 1.0, density: 0.01 }
+		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
 
 	// use svg file to create the corresponding polygon
@@ -65,12 +65,55 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: 800,
-				y: 30,
-				w: 80,
-				h: 10,
+				x: 750,
+				y: 170,
+				w: 200,
+				h: 40,
+				force: { x: -0.047, y: -0.016 },
 			},
-			{ angle: PI / -2, isStatic: true }
+			{ isSensor: true, isStatic: true }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 900,
+				y: 390,
+				w: 150,
+				h: 40,
+				force: { x: -0.047, y: -0.016 },
+			},
+			{ isSensor: true, isStatic: true, angle: PI / -9 }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 900,
+				y: 610,
+				w: 200,
+				h: 40,
+				force: { x: -0.047, y: -0.016 },
+			},
+			{ isSensor: true, isStatic: true, angle: PI / -9 }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 680,
+				y: 648,
+				w: 300,
+				h: 40,
+				force: { x: -0.022, y: -0.016 },
+			},
+			{ isSensor: true, isStatic: true }
 		)
 	);
 
@@ -148,8 +191,8 @@ function onKeyDown(event) {
 				console.log("speed wir derhöht");
 				event.preventDefault();
 				Matter.Body.applyForce(ei.body, ei.body.position, {
-					x: 1.0,
-					y: -0.5,
+					x: 0.04,
+					y: -0.02,
 				});
 			}
 			break;

@@ -82,92 +82,11 @@ function setup() {
 }
 
 function scene1() {
-	sceneBack.style["background"] = 'url("./scene1_back.jpg") no-repeat';
-	blocks.push(
-		new BlockCore(
-			world,
-			{ x: -100, y: 450, w: 800, h: 10, color: "gray" },
-			{ angle: PI / 3, isStatic: true }
-		)
-	);
-	blocks.push(
-		new BlockCore(
-			world,
-			{ x: windowWidth + 100, y: 450, w: 800, h: 10, color: "gray" },
-			{ angle: -PI / 3, isStatic: true }
-		)
-	);
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: windowWidth / 2,
-				y: 800,
-				w: windowWidth,
-				h: 30,
-				color: "green",
-			},
-			{ isStatic: true }
-		)
-	);
-
-	// the ball has a label and can react on collisions
-	ball = new Ball(
-		world,
-		{
-			x: 300,
-			y: 80,
-			r: 30,
-			color: "blue",
-		},
-		{
-			label: "Murmel",
-			isStatic: false,
-			xdensity: 0.001,
-			restitution: 1.0,
-			friction: 0.0,
-			frictionAir: 0.0,
-		}
-	);
-	blocks.push(ball);
+	//sceneBack.style["background"] = 'url("./scene1_back.jpg") no-repeat';
 }
 
 function scene2() {
-	sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
-
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: windowWidth / 2,
-				y: 800,
-				w: windowWidth,
-				h: 20,
-				color: "yellow",
-			},
-			{ angle: radians(3), isStatic: true }
-		)
-	);
-
-	// the ball has a label and can react on collisions
-	ball = new Ball(
-		world,
-		{
-			x: 100,
-			y: 20,
-			r: 10,
-			color: "red",
-		},
-		{
-			label: "Murmel",
-			isStatic: false,
-			xdensity: 0.001,
-			restitution: 1.0,
-			friction: 0.0,
-			frictionAir: 0.0,
-		}
-	);
-	blocks.push(ball);
+	//sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
 }
 
 function switchScene(newScene) {
@@ -191,17 +110,18 @@ function onKeyDown(event) {
 	switch (event.key) {
 		case " ":
 			console.log("SPACE");
-			event.preventDefault();
-			Matter.Body.applyForce(ball.body, ball.body.position, {
-				x: 0.0,
-				y: -0.05,
-			});
-			break;
-		case "n":
-			switchScene((scene + 1) % scenes.length);
-			break;
-		case "p":
-			switchScene(Math.abs(scene - 1) % scenes.length);
+
+			if (ei.body.velocity.y < -3.96) {
+				console.log("speed erreicht");
+			}
+			if (ei.body.velocity.y > -3.96) {
+				console.log("speed wir derhöht");
+				event.preventDefault();
+				Matter.Body.applyForce(ei.body, ei.body.position, {
+					x: 0.04,
+					y: -0.02,
+				});
+			}
 			break;
 		default:
 			console.log(event.key);

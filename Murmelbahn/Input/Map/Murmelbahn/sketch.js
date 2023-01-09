@@ -82,72 +82,11 @@ function setup() {
 }
 
 function scene1() {
-	sceneBack.style["background"] = 'url("./scene1_back.jpg") no-repeat';
-	blocks.push(
-		new BlockCore(
-			world,
-			{ x: -100, y: 450, w: 800, h: 10, color: "gray" },
-			{ angle: PI / 3, isStatic: true }
-		)
-	);
-	blocks.push(
-		new BlockCore(
-			world,
-			{ x: windowWidth + 100, y: 450, w: 800, h: 10, color: "gray" },
-			{ angle: -PI / 3, isStatic: true }
-		)
-	);
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: windowWidth / 2,
-				y: 800,
-				w: windowWidth,
-				h: 30,
-				color: "green",
-			},
-			{ isStatic: true }
-		)
-	);
-
-	// the ball has a label and can react on collisions
-	ball = new Ball(
-		world,
-		{
-			x: 300,
-			y: 80,
-			r: 30,
-			color: "blue",
-		},
-		{
-			label: "Murmel",
-			isStatic: false,
-			xdensity: 0.001,
-			restitution: 1.0,
-			friction: 0.0,
-			frictionAir: 0.0,
-		}
-	);
-	blocks.push(ball);
+	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
 }
 
 function scene2() {
 	sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
-
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: windowWidth / 2,
-				y: 800,
-				w: windowWidth,
-				h: 20,
-				color: "yellow",
-			},
-			{ angle: radians(3), isStatic: true }
-		)
-	);
 
 	// the ball has a label and can react on collisions
 	ball = new Ball(
@@ -185,6 +124,8 @@ function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
+	ei.draw();
+	kamin1.draw();
 }
 
 function onKeyDown(event) {

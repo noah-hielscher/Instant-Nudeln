@@ -3,7 +3,21 @@ let normal;
 
 let ei;
 
-// use svg file to create the corresponding polygon
+//ei
+ei = new PolygonFromSVG(
+	world,
+	{
+		x: 880,
+		y: 0,
+		image: normal,
+		fromFile: "./pathei.svg",
+		scale: 1,
+		color: "black",
+	},
+	{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
+);
+
+//Hintergrund
 kamin1 = new PolygonFromSVG(
 	world,
 	{
@@ -15,6 +29,7 @@ kamin1 = new PolygonFromSVG(
 	{ isStatic: true, friction: 0.0 }
 );
 
+//Pusher
 blocks.push(
 	new BlockCore(
 		world,

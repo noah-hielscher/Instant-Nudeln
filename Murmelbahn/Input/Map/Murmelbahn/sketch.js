@@ -15,7 +15,7 @@ let isDrag = false;
 let blocks = [];
 
 // an array to contain all the scene functions
-let scenes = [scene1, scene2];
+let scenes = [scene1, scene2, scene3, scene4];
 let scene = 0;
 let sceneBack, sceneFore;
 
@@ -82,31 +82,19 @@ function setup() {
 }
 
 function scene1() {
-	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
+	//sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
 }
 
 function scene2() {
 	sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
+}
 
-	// the ball has a label and can react on collisions
-	ball = new Ball(
-		world,
-		{
-			x: 100,
-			y: 20,
-			r: 10,
-			color: "red",
-		},
-		{
-			label: "Murmel",
-			isStatic: false,
-			xdensity: 0.001,
-			restitution: 1.0,
-			friction: 0.0,
-			frictionAir: 0.0,
-		}
-	);
-	blocks.push(ball);
+function scene3() {
+	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
+}
+
+function scene4() {
+	sceneBack.style["background"] = 'url("./scene2_back.jpg") no-repeat';
 }
 
 function switchScene(newScene) {

@@ -498,6 +498,20 @@ function scene5() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+	//Path
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 500,
+				y: 330,
+				w: 240,
+				h: 20,
+				color: "red",
+			},
+			{ isStatic: true, angle: PI / 13 }
+		)
+	);
 	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(

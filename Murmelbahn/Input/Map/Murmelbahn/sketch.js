@@ -147,6 +147,7 @@ function scene3() {
 			y: 360,
 			fromFile: "./frame3/kamin1.svg",
 			scale: 1,
+			color: "red",
 		},
 		{ isStatic: true, friction: 0.0 }
 	);
@@ -210,7 +211,7 @@ function scene3() {
 }
 
 function scene4() {
-	sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
+	//sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -226,22 +227,24 @@ function scene4() {
 	);
 
 	//Path
-	kamin2 = new PolygonFromSVG(
-		world,
-		{
-			x: 515,
-			y: 225,
-			fromFile: "./frame4/kamin2a.svg",
-			scale: 1,
-		},
-		{ isStatic: true, friction: 0.0 }
-	);
+	//kamin2 = new PolygonFromSVG(
+	//	world,
+	//	{
+	//		x: 515,
+	//		y: 225,
+	//		fromFile: "./frame4/kamin2a.svg",
+	//		scale: 1,
+	//	},
+	//	{ isStatic: true, friction: 0.0 }
+	//);
 }
 
 function switchScene(newScene) {
 	console.log("Scene", newScene);
 	// cleanup of all blocks in the old scene
-	blocks.forEach((block) => Matter.World.remove(world, block.body));
+	blocks.forEach((block) =>
+		Matter.World.remove(world, block.body, kamin1.body)
+	);
 	blocks = [];
 
 	// activate the new scene
@@ -260,11 +263,18 @@ function onKeyDown(event) {
 	switch (event.key) {
 		case " ":
 			console.log("SPACE");
-			event.preventDefault();
-			Matter.Body.applyForce(ei.body, ei.body.position, {
-				x: 0.04,
-				y: -0.02,
-			});
+
+			if (ei.body.velocity.y < -3.96) {
+				console.log("speed erreicht");
+			}
+			if (ei.body.velocity.y > -3.96) {
+				console.log("speed wir derhöht");
+				event.preventDefault();
+				Matter.Body.applyForce(ei.body, ei.body.position, {
+					x: 0.04,
+					y: -0.02,
+				});
+			}
 			break;
 		case "n":
 			switchScene((scene + 1) % scenes.length);

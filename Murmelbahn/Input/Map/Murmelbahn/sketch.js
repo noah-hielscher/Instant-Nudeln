@@ -15,7 +15,7 @@ let isDrag = false;
 let blocks = [];
 
 //Szenenwechsel
-let scenes = [scene1, scene2, scene3, scene4, scene5];
+let scenes = [scene1, scene2, scene3, scene4, scene5, scene6];
 let scene = 0;
 let sceneBack, sceneFore;
 
@@ -184,7 +184,6 @@ function scene1() {
 				y: 720,
 				w: 1280,
 				h: 40,
-				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
 				},
@@ -294,7 +293,6 @@ function scene2() {
 				y: 720,
 				w: 330,
 				h: 40,
-				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
 				},
@@ -415,7 +413,6 @@ function scene3() {
 				y: 720,
 				w: 300,
 				h: 40,
-				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
 				},
@@ -478,7 +475,6 @@ function scene4() {
 				y: 720,
 				w: 600,
 				h: 40,
-				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
 				},
@@ -489,7 +485,80 @@ function scene4() {
 }
 
 function scene5() {
-	//sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
+	sceneBack.style["background"] = 'url("./frame5/background.png") no-repeat';
+	//ei
+	ei = new PolygonFromSVG(
+		world,
+		{
+			x: 420,
+			y: 0,
+			image: normal,
+			fromFile: "./eggState/pathei.svg",
+			scale: 1,
+		},
+		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
+	);
+	//Automatischer Szenen wechsler
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 620,
+				y: 735,
+				w: 1500,
+				h: 40,
+				trigger: () => {
+					switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+}
+
+function scene6() {
+	sceneBack.style["background"] = 'url("./frame6/background.png") no-repeat';
+	//ei
+	ei = new PolygonFromSVG(
+		world,
+		{
+			x: ei.body.position.x,
+			y: 0,
+			image: normal,
+			fromFile: "./eggState/pathei.svg",
+			scale: 1,
+		},
+		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
+	);
+	//Boden
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 500,
+				y: 700,
+				w: 1280,
+				h: 40,
+			},
+			{ isStatic: true, restitution: 0.5, friction: 0.001 }
+		)
+	);
+	//Automatischer Szenen wechsler
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 920,
+				y: 650,
+				w: 120,
+				h: 100,
+				trigger: () => {
+					switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 }
 
 function switchScene(newScene) {

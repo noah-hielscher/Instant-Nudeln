@@ -23,14 +23,19 @@ let sceneBack, sceneFore;
 let normal, black, cracked, blase, crackedOpen, done;
 let ei;
 
-//Ei Images Load
+//Objects in the Kitchen
+let brett1a, brett1b, brettImage;
+
 function preload() {
+	//preloading - Egg Images
 	normal = loadImage("./eggState/normal.png");
 	black = loadImage("./eggState/black.png");
 	cracked = loadImage("./eggState/cracked.png");
 	blase = loadImage("./eggState/blase.png");
 	crackedOpen = loadImage("./eggState/crackedOpen.png");
 	done = loadImage("./eggState/done.png");
+	//preloading - Objects in the Kitchen
+	brettImage = loadImage("./frame5/brett1.png");
 }
 
 function setup() {
@@ -512,6 +517,44 @@ function scene5() {
 			{ isStatic: true, angle: PI / 13 }
 		)
 	);
+	//zerbrechende Bretter
+	brett1a = new PolygonFromSVG(
+		world,
+		{
+			x: 700,
+			y: 600,
+			image: brettImage,
+			fromFile: "./frame5/brett1.svg",
+			scale: 1,
+			trigger: () => {
+				Matter.Body.setStatic(brett1a.body, false);
+				Matter.Body.setStatic(brett1b.body, false);
+				ei.attributes.image = cracked;
+			},
+		},
+		{ isStatic: true }
+	);
+
+	blocks.push(brett1a);
+
+	brett1b = new BlockCore(
+		world,
+		{
+			x: 800,
+			y: 600,
+			w: 100,
+			h: 20,
+			color: "red",
+			trigger: () => {
+				Matter.Body.setStatic(brett1a.body, false);
+				Matter.Body.setStatic(brett1b.body, false);
+				ei.attributes.image = cracked;
+			},
+		},
+		{ angle: radians(0), isStatic: true }
+	);
+	blocks.push(brett1b);
+
 	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(
@@ -538,7 +581,7 @@ function scene6() {
 		{
 			x: ei.body.position.x,
 			y: 0,
-			image: normal,
+			image: cracked,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},

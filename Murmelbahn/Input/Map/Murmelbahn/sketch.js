@@ -14,17 +14,20 @@ let isDrag = false;
 // an array to contain all the blocks created
 let blocks = [];
 
-// an array to contain all the scene functions
-let scenes = [scene1, scene2, scene3, scene4];
+//Szenenwechsel
+let scenes = [scene1, scene2, scene3, scene4, scene5];
 let scene = 0;
 let sceneBack, sceneFore;
 
-//Ei
+//Ei Statusse
 let normal;
+let black;
 let ei;
 
+//Ei Images Load
 function preload() {
 	normal = loadImage("./eggState/normal.png");
+	black = loadImage("./eggState/black.png");
 }
 
 function setup() {
@@ -100,7 +103,6 @@ function scene1() {
 			image: normal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
-			color: "black",
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
@@ -117,7 +119,6 @@ function scene2() {
 			image: normal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
-			color: "black",
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
@@ -131,10 +132,9 @@ function scene3() {
 		{
 			x: 880,
 			y: 0,
-			image: normal,
+			image: black,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
-			color: "black",
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
@@ -218,10 +218,9 @@ function scene4() {
 		{
 			x: 420,
 			y: 0,
-			image: normal,
+			image: black,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
-			color: "black",
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
@@ -239,12 +238,14 @@ function scene4() {
 	//);
 }
 
+function scene5() {
+	//sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
+}
+
 function switchScene(newScene) {
 	console.log("Scene", newScene);
 	// cleanup of all blocks in the old scene
-	blocks.forEach((block) =>
-		Matter.World.remove(world, block.body, kamin1.body)
-	);
+	blocks.forEach((block) => Matter.World.remove(world, block.body));
 	blocks = [];
 
 	// activate the new scene

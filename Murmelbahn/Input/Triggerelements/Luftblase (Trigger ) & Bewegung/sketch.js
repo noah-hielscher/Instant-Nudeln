@@ -223,8 +223,8 @@ function onKeyDown(event) {
 				console.log("speed wir derhöht");
 				event.preventDefault();
 				Matter.Body.applyForce(ei.body, ei.body.position, {
-					x: 1.0,
-					y: -0.5,
+					x: 0.04,
+					y: -0.02,
 				});
 			}
 			break;

@@ -4,8 +4,6 @@ const Bodies = Matter.Bodies;
 const Events = Matter.Events;
 const World = Matter.World;
 
-M
-
 // the Matter engine to animate the world
 let engine;
 let world;
@@ -22,12 +20,7 @@ let scene = 0;
 let sceneBack, sceneFore;
 
 //Ei Statusse
-let normal;
-let black;
-let cracked;
-let blase;
-let crackedOpen;
-let done;
+let normal, black, cracked, blase, crackedOpen, done;
 let ei;
 
 //Ei Images Load

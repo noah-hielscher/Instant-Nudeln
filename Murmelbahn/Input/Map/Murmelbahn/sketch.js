@@ -139,6 +139,18 @@ function scene3() {
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
 
+	//Path
+	kamin1 = new PolygonFromSVG(
+		world,
+		{
+			x: 640,
+			y: 360,
+			fromFile: "./frame3/kamin1.svg",
+			scale: 1,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+
 	//Pusher
 	blocks.push(
 		new BlockCore(
@@ -203,7 +215,7 @@ function scene4() {
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 880,
+			x: 420,
 			y: 0,
 			image: normal,
 			fromFile: "./eggState/pathei.svg",
@@ -238,8 +250,8 @@ function onKeyDown(event) {
 			console.log("SPACE");
 			event.preventDefault();
 			Matter.Body.applyForce(ei.body, ei.body.position, {
-				x: 0.0,
-				y: -0.05,
+				x: 0.04,
+				y: -0.02,
 			});
 			break;
 		case "n":

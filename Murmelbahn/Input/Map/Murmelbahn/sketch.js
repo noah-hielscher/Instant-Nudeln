@@ -224,6 +224,18 @@ function scene4() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+
+	//Path
+	kamin2 = new PolygonFromSVG(
+		world,
+		{
+			x: 515,
+			y: 225,
+			fromFile: "./frame4/kamin2a.svg",
+			scale: 1,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
 }
 
 function switchScene(newScene) {

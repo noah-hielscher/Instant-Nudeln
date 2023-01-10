@@ -196,13 +196,14 @@ function scene1() {
 
 function scene2() {
 	sceneBack.style["background"] = 'url("./frame2/background.png") no-repeat';
-	let wolken2;
+	sceneFore.style["foreground"] = 'url("./frame2/Schornstein.png") no-repeat';
+	let wolken2, wolken3;
 
 	//ei
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 400,
+			x: ei.body.position.x,
 			y: 0,
 			image: normal,
 			fromFile: "./eggState/pathei.svg",
@@ -236,6 +237,18 @@ function scene2() {
 	);
 	blocks.push(wolken2);
 
+	wolken3 = new PolygonFromSVG(
+		world,
+		{
+			x: 800,
+			y: 160,
+			fromFile: "./frame2/wolkeRechts.svg",
+			scale: 1,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(wolken3);
+
 	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(
@@ -247,7 +260,45 @@ function scene2() {
 				h: 40,
 				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
-					switchScene((scene + 1) % scenes.length);
+					//switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+
+	//Automatischer Resetter
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 200,
+				y: 600,
+				w: 480,
+				h: 40,
+				color: "red",
+				force: { x: -0.022, y: -0.016 },
+				trigger: () => {
+					ei.body.position.x = 200;
+					ei.body.position.y = 0;
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1030,
+				y: 730,
+				w: 480,
+				h: 40,
+				color: "red",
+				force: { x: -0.022, y: -0.016 },
+				trigger: () => {
+					ei.body.position.x = 200;
+					ei.body.position.y = 100;
 				},
 			},
 			{ isSensor: true, isStatic: true }

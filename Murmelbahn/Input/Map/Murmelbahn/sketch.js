@@ -22,12 +22,20 @@ let sceneBack, sceneFore;
 //Ei Statusse
 let normal;
 let black;
+let cracked;
+let blase;
+let crackedOpen;
+let done;
 let ei;
 
 //Ei Images Load
 function preload() {
 	normal = loadImage("./eggState/normal.png");
 	black = loadImage("./eggState/black.png");
+	cracked = loadImage("./eggState/cracked.png");
+	blase = loadImage("./eggState/blase.png");
+	crackedOpen = loadImage("./eggState/crackedOpen.png");
+	done = loadImage("./eggState/done.png");
 }
 
 function setup() {

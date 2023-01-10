@@ -27,7 +27,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	// use svg file to create the corresponding polygon	
+	// use svg file to create the corresponding polygon
 	new BlocksFromSVG(world, "./img/Clouds-Test-Section2.svg", blocks, {
 		isStatic: true,
 	});

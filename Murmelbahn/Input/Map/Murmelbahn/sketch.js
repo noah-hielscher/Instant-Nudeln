@@ -219,7 +219,7 @@ function scene3() {
 }
 
 function scene4() {
-	//sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
+	sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
 	//ei
 	ei = new PolygonFromSVG(
 		world,

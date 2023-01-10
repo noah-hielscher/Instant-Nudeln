@@ -97,11 +97,12 @@ function setup() {
 
 function scene1() {
 	sceneBack.style["background"] = 'url("./frame1/background.png") no-repeat';
+	let wolken2, wolken3;
 	//ei
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 880,
+			x: 120,
 			y: 0,
 			image: normal,
 			fromFile: "./eggState/pathei.svg",
@@ -109,6 +110,71 @@ function scene1() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+
+	//Path
+	wolken2 = new PolygonFromSVG(
+		world,
+		{
+			x: 160,
+			y: 155,
+			fromFile: "./frame2/Clouds-Test-Section2.svg",
+			scale: 1.5,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(wolken2);
+
+	wolken2 = new PolygonFromSVG(
+		world,
+		{
+			x: 410,
+			y: 590,
+			fromFile: "./frame2/Clouds-Test-Section2.svg",
+			scale: 1.0,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(wolken2);
+
+	wolken3 = new PolygonFromSVG(
+		world,
+		{
+			x: 780,
+			y: 297,
+			fromFile: "./frame1/wolken2.svg",
+			scale: 1.0,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(wolken3);
+
+	wolken3 = new PolygonFromSVG(
+		world,
+		{
+			x: 880,
+			y: 510,
+			fromFile: "./frame1/wolken2.svg",
+			scale: 1.0,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(wolken3);
+
+	//Pusher
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 750,
+				y: 305,
+				w: 200,
+				h: 40,
+				force: { x: -0.096, y: -0.046 },
+			},
+			{ isSensor: true, isStatic: true, angle: PI / -8 }
+		)
+	);
+
 	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(
@@ -136,7 +202,7 @@ function scene2() {
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 880,
+			x: 400,
 			y: 0,
 			image: normal,
 			fromFile: "./eggState/pathei.svg",
@@ -149,11 +215,22 @@ function scene2() {
 	wolken2 = new PolygonFromSVG(
 		world,
 		{
-			x: 640,
-			y: 360,
-			fromFile: "./frame2/wolken2.svg",
+			x: 180,
+			y: 100,
+			fromFile: "./frame2/Clouds-Test-Section2.svg",
 			scale: 1,
-			color: "red",
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(wolken2);
+
+	wolken2 = new PolygonFromSVG(
+		world,
+		{
+			x: 465,
+			y: 310,
+			fromFile: "./frame2/Clouds-Test-Section2.svg",
+			scale: 0.8,
 		},
 		{ isStatic: true, friction: 0.0 }
 	);
@@ -218,7 +295,6 @@ function scene3() {
 				y: 140,
 				w: 200,
 				h: 40,
-				color: "red",
 				force: { x: -0.046, y: -0.016 },
 			},
 			{ isSensor: true, isStatic: true, angle: PI / -6 }
@@ -391,10 +467,8 @@ function onKeyDown(event) {
 			console.log("SPACE");
 
 			if (ei.body.velocity.y < -3.96) {
-				console.log("speed erreicht");
 			}
 			if (ei.body.velocity.y > -3.96) {
-				console.log("speed wir derhöht");
 				event.preventDefault();
 				Matter.Body.applyForce(ei.body, ei.body.position, {
 					x: 0.04,

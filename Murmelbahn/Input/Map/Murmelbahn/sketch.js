@@ -4,6 +4,8 @@ const Bodies = Matter.Bodies;
 const Events = Matter.Events;
 const World = Matter.World;
 
+M
+
 // the Matter engine to animate the world
 let engine;
 let world;

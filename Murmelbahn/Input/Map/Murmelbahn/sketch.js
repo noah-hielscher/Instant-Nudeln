@@ -109,10 +109,29 @@ function scene1() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+	//Automatischer Szenen wechsler
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 640,
+				y: 720,
+				w: 1280,
+				h: 40,
+				force: { x: -0.022, y: -0.016 },
+				trigger: () => {
+					switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 }
 
 function scene2() {
 	sceneBack.style["background"] = 'url("./frame2/background.png") no-repeat';
+	let wolken2;
+
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -125,15 +144,50 @@ function scene2() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+
+	//Path
+	wolken2 = new PolygonFromSVG(
+		world,
+		{
+			x: 640,
+			y: 360,
+			fromFile: "./frame2/wolken2.svg",
+			scale: 1,
+			color: "red",
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(wolken2);
+
+	//Automatischer Szenen wechsler
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 620,
+				y: 720,
+				w: 330,
+				h: 40,
+				force: { x: -0.022, y: -0.016 },
+				trigger: () => {
+					switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 }
 
 function scene3() {
 	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
+
+	let kamin1;
+
 	//ei
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 880,
+			x: 878,
 			y: 0,
 			image: black,
 			fromFile: "./eggState/pathei.svg",
@@ -150,21 +204,36 @@ function scene3() {
 			y: 360,
 			fromFile: "./frame3/kamin1.svg",
 			scale: 1,
-			color: "red",
 		},
 		{ isStatic: true, friction: 0.0 }
 	);
+	blocks.push(kamin1);
 
 	//Pusher
 	blocks.push(
 		new BlockCore(
 			world,
 			{
-				x: 750,
-				y: 170,
+				x: 900,
+				y: 140,
 				w: 200,
 				h: 40,
-				force: { x: -0.047, y: -0.016 },
+				color: "red",
+				force: { x: -0.046, y: -0.016 },
+			},
+			{ isSensor: true, isStatic: true, angle: PI / -6 }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 760,
+				y: 185,
+				w: 200,
+				h: 40,
+				force: { x: -0.036, y: -0.026 },
 			},
 			{ isSensor: true, isStatic: true }
 		)
@@ -176,11 +245,11 @@ function scene3() {
 			{
 				x: 900,
 				y: 390,
-				w: 150,
+				w: 180,
 				h: 40,
-				force: { x: -0.047, y: -0.016 },
+				force: { x: -0.058, y: -0.012 },
 			},
-			{ isSensor: true, isStatic: true, angle: PI / -9 }
+			{ isSensor: true, isStatic: true, angle: PI / -15 }
 		)
 	);
 
@@ -211,10 +280,31 @@ function scene3() {
 			{ isSensor: true, isStatic: true }
 		)
 	);
+
+	//Automatischer Szenen wechsler
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 330,
+				y: 720,
+				w: 300,
+				h: 40,
+				force: { x: -0.022, y: -0.016 },
+				trigger: () => {
+					switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 }
 
 function scene4() {
 	sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
+
+	let kamin2, kamin3;
+
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -229,16 +319,48 @@ function scene4() {
 	);
 
 	//Path
-	//kamin2 = new PolygonFromSVG(
-	//	world,
-	//	{
-	//		x: 515,
-	//		y: 225,
-	//		fromFile: "./frame4/kamin2a.svg",
-	//		scale: 1,
-	//	},
-	//	{ isStatic: true, friction: 0.0 }
-	//);
+	kamin2 = new PolygonFromSVG(
+		world,
+		{
+			x: 730,
+			y: 270,
+			fromFile: "./frame4/kamin2a.svg",
+			scale: 1,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(kamin2);
+
+	//Path
+	kamin3 = new PolygonFromSVG(
+		world,
+		{
+			x: 520,
+			y: 225,
+			fromFile: "./frame4/kamin2b.svg",
+			scale: 1,
+		},
+		{ isStatic: true, friction: 0.0 }
+	);
+	blocks.push(kamin3);
+
+	//Automatischer Szenen wechsler
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 620,
+				y: 720,
+				w: 600,
+				h: 40,
+				force: { x: -0.022, y: -0.016 },
+				trigger: () => {
+					switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 }
 
 function scene5() {

@@ -15,7 +15,7 @@ let isDrag = false;
 let blocks = [];
 
 //Szenenwechsel
-let scenes = [scene1, scene2, scene3, scene4, scene5, scene6, scene7];
+let scenes = [scene1, scene2, scene3, scene4, scene5, scene6, scene7, scene8];
 let scene = 0;
 let sceneBack, sceneFore;
 
@@ -660,6 +660,9 @@ function scene5() {
 
 function scene6() {
 	sceneBack.style["background"] = 'url("./frame6/background.png") no-repeat';
+	//ei Bewegung
+	eiX = 0.04;
+	eiY = -0.02;
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -775,6 +778,43 @@ function scene7() {
 		)
 	);
 }
+function scene8() {
+	sceneBack.style["background"] = 'url("./frame7/background.png") no-repeat';
+	//Ei Hüpfen wir erstärkt
+	eiX = 0.04;
+	eiY = -0.04;
+
+	//ei
+	ei = new PolygonFromSVG(
+		world,
+		{
+			x: 118,
+			y: 0,
+			image: cracked,
+			fromFile: "./eggState/pathei.svg",
+			scale: 1,
+		},
+		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
+	);
+
+	//Automatischer Szenen wechsler
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 980,
+				y: 0,
+				w: 250,
+				h: 15,
+				trigger: () => {
+					switchScene((scene + 1) % scenes.length);
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+}
+
 function switchScene(newScene) {
 	console.log("Scene", newScene);
 	// cleanup of all blocks in the old scene

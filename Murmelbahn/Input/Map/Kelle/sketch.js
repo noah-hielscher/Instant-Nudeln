@@ -10,20 +10,22 @@ const World = Matter.World;
 let engine;
 let world;
 let mouse;
+let ball;
 let isDrag = false;
+
 // an array to contain all the blocks created
 let blocks = [];
 let flipper;
 let angle = 0;
 
-function preload() {
-	poly = loadImage("./img/poly.png");
-	ballImg = loadImage("./img/ball.png");
-	boxImg = loadImage("./img/box.png");
-}
+//function preload() {
+	//poly = loadImage("./img/poly.png");
+	//ballImg = loadImage("./img/ball.png");
+	//boxImg = loadImage("./img/box.png");
+//}
 
 function setup() {
-	let canvas = createCanvas(windowWidth, windowHeight);
+	let canvas = createCanvas(1280, 720);
 	canvas.parent("thecanvas");
 
 	engine = Engine.create();

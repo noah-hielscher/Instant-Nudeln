@@ -35,7 +35,8 @@ function preload() {
 	crackedOpen = loadImage("./eggState/crackedOpen.png");
 	done = loadImage("./eggState/done.png");
 	//preloading - Objects in the Kitchen
-	brettImage = loadImage("./frame5/brett1.png");
+	brett1aImage = loadImage("./frame5/brett1.png");
+	brett1bImage = loadImage("./frame5/brett2.png");
 }
 
 function setup() {
@@ -521,9 +522,9 @@ function scene5() {
 	brett1a = new PolygonFromSVG(
 		world,
 		{
-			x: 700,
-			y: 600,
-			image: brettImage,
+			x: 820,
+			y: 580,
+			image: brett1aImage,
 			fromFile: "./frame5/brett1.svg",
 			scale: 1,
 			trigger: () => {
@@ -537,23 +538,51 @@ function scene5() {
 
 	blocks.push(brett1a);
 
-	brett1b = new BlockCore(
+	brett1b = new PolygonFromSVG(
 		world,
 		{
-			x: 800,
-			y: 600,
-			w: 100,
-			h: 20,
-			color: "red",
+			x: 950,
+			y: 577,
+			image: brett1bImage,
+			fromFile: "./frame5/brett1.svg",
+			scale: 1,
 			trigger: () => {
 				Matter.Body.setStatic(brett1a.body, false);
 				Matter.Body.setStatic(brett1b.body, false);
 				ei.attributes.image = cracked;
 			},
 		},
-		{ angle: radians(0), isStatic: true }
+		{ isStatic: true }
 	);
+
 	blocks.push(brett1b);
+
+	//Brett Halterung
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 793,
+				y: 614,
+				w: 15,
+				h: 40,
+			},
+			{ isStatic: true }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1007,
+				y: 614,
+				w: 15,
+				h: 40,
+			},
+			{ isStatic: true }
+		)
+	);
 
 	//Automatischer Szenen wechsler
 	blocks.push(

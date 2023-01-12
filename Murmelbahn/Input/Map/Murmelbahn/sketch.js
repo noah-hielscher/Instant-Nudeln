@@ -848,6 +848,25 @@ function scene7() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+	//Bewegung & Physik ab Wasser
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 630,
+				y: 570,
+				w: 30,
+				h: 100,
+				trigger: () => {
+					eiX = 0.03;
+					eiY = 0.03;
+					engine.gravity.x = 0;
+					engine.gravity.y = -1;
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 	//Path
 	blocks.push(
 		new BlockCore(
@@ -903,10 +922,12 @@ function scene7() {
 	);
 }
 function scene8() {
-	sceneBack.style["background"] = 'url("./frame7/background.png") no-repeat';
-	//Ei Hüpfen wir erstärkt
+	sceneBack.style["background"] = 'url("./frame8/background.png") no-repeat';
+	//Ei Hüpfen & Physik auf normal
 	eiX = 0.04;
 	eiY = -0.04;
+	engine.gravity.x = 0;
+	engine.gravity.y = 1;
 
 	//ei
 	ei = new PolygonFromSVG(
@@ -914,7 +935,7 @@ function scene8() {
 		{
 			x: 118,
 			y: 0,
-			image: cracked,
+			image: blase,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},

@@ -27,7 +27,7 @@ let eiX = 0.04;
 let eiY = -0.02;
 
 //Objects in the Kitchen
-let brett1a, brett1b, brettImage;
+let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
 
 function preload() {
 	//preloading - Egg Images
@@ -40,6 +40,10 @@ function preload() {
 	//preloading - Objects in the Kitchen
 	brett1aImage = loadImage("./frame5/brett1.png");
 	brett1bImage = loadImage("./frame5/brett2.png");
+	brett2aImage = loadImage("./frame6/brett3.png");
+	brett2bImage = loadImage("./frame6/brett4.png");
+	brett3aImage = loadImage("./frame6/brett5.png");
+	brett3bImage = loadImage("./frame6/brett6.png");
 }
 
 function setup() {
@@ -674,6 +678,126 @@ function scene6() {
 			scale: 1,
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
+	);
+	//Bretter oben
+	brett2a = new PolygonFromSVG(
+		world,
+		{
+			x: 797,
+			y: 57,
+			image: brett2aImage,
+			fromFile: "./frame6/brett3.svg",
+			scale: 1,
+			trigger: () => {
+				Matter.Body.setStatic(brett2a.body, false);
+				Matter.Body.setStatic(brett2b.body, false);
+			},
+		},
+		{ isStatic: true }
+	);
+	blocks.push(brett2a);
+	brett2b = new PolygonFromSVG(
+		world,
+		{
+			x: 933,
+			y: 57,
+			image: brett2bImage,
+			fromFile: "./frame6/brett4.svg",
+			scale: 1,
+			trigger: () => {
+				Matter.Body.setStatic(brett2a.body, false);
+				Matter.Body.setStatic(brett2b.body, false);
+			},
+		},
+		{ isStatic: true }
+	);
+	blocks.push(brett2b);
+	//Bretter unten
+	brett3a = new PolygonFromSVG(
+		world,
+		{
+			x: 836,
+			y: 178,
+			image: brett3aImage,
+			fromFile: "./frame6/brett5.svg",
+			scale: 1,
+			trigger: () => {
+				Matter.Body.setStatic(brett3a.body, false);
+				Matter.Body.setStatic(brett3b.body, false);
+			},
+		},
+		{ isStatic: true }
+	);
+	blocks.push(brett3a);
+	brett3b = new PolygonFromSVG(
+		world,
+		{
+			x: 975,
+			y: 175,
+			image: brett3bImage,
+			fromFile: "./frame6/brett6.svg",
+			scale: 1,
+			trigger: () => {
+				Matter.Body.setStatic(brett3a.body, false);
+				Matter.Body.setStatic(brett3b.body, false);
+			},
+		},
+		{ isStatic: true }
+	);
+	blocks.push(brett3b);
+
+	//Brett Halterung oben
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 795,
+				y: 90,
+				w: 15,
+				h: 40,
+			},
+			{ isStatic: true }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1010,
+				y: 90,
+				w: 15,
+				h: 40,
+			},
+			{ isStatic: true }
+		)
+	);
+
+	//Brett Halterung unten
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 805,
+				y: 208,
+				w: 15,
+				h: 40,
+			},
+			{ isStatic: true }
+		)
+	);
+
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1018,
+				y: 208,
+				w: 15,
+				h: 40,
+			},
+			{ isStatic: true }
+		)
 	);
 	//Boden
 	blocks.push(

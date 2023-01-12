@@ -22,6 +22,9 @@ let sceneBack, sceneFore;
 //Ei Statusse
 let normal, black, cracked, blase, crackedOpen, done;
 let ei;
+//Ei Bewegung
+let eiX = 0.04;
+let eiY = -0.02;
 
 //Objects in the Kitchen
 let brett1a, brett1b, brettImage;
@@ -492,6 +495,10 @@ function scene4() {
 
 function scene5() {
 	sceneBack.style["background"] = 'url("./frame5/background.png") no-repeat';
+	//Ei Hüpfen wir erstärkt
+	eiX = 0.018;
+	eiY = -0.062;
+
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -513,9 +520,44 @@ function scene5() {
 				y: 330,
 				w: 240,
 				h: 20,
-				color: "red",
 			},
 			{ isStatic: true, angle: PI / 13 }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 742,
+				y: 255,
+				w: 240,
+				h: 20,
+			},
+			{ isStatic: true }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 970,
+				y: 170,
+				w: 240,
+				h: 20,
+			},
+			{ isStatic: true }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1130,
+				y: 420,
+				w: 240,
+				h: 20,
+			},
+			{ isStatic: true, angle: PI / -7 }
 		)
 	);
 	//zerbrechende Bretter
@@ -675,8 +717,8 @@ function onKeyDown(event) {
 			if (ei.body.velocity.y > -3.96) {
 				event.preventDefault();
 				Matter.Body.applyForce(ei.body, ei.body.position, {
-					x: 0.04,
-					y: -0.02,
+					x: eiX,
+					y: eiY,
 				});
 			}
 			break;

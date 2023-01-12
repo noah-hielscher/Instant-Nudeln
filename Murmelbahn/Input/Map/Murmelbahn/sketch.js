@@ -511,6 +511,20 @@ function scene5() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+	//Path Bild
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1290,
+				y: 100,
+				w: 200,
+				h: 200,
+			},
+			{ isStatic: true }
+		)
+	);
+
 	//Path
 	blocks.push(
 		new BlockCore(
@@ -691,6 +705,10 @@ function scene6() {
 
 function scene7() {
 	sceneBack.style["background"] = 'url("./frame7/background.png") no-repeat';
+	//Ei Hüpfen wir erstärkt
+	eiX = 0.04;
+	eiY = -0.04;
+
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -705,6 +723,18 @@ function scene7() {
 	);
 	//Path
 	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 55,
+				y: 110,
+				w: 20,
+				h: 210,
+			},
+			{ isStatic: true }
+		)
+	);
+	blocks.push(
 		new PolygonFromSVG(
 			world,
 			{
@@ -712,7 +742,18 @@ function scene7() {
 				y: 510,
 				fromFile: "./frame7/kanal.svg",
 				scale: 1,
-				color: "red",
+			},
+			{ isStatic: true, friction: 0.0 }
+		)
+	);
+	blocks.push(
+		new PolygonFromSVG(
+			world,
+			{
+				x: 810,
+				y: 360,
+				fromFile: "./frame7/kanal2.svg",
+				scale: 1,
 			},
 			{ isStatic: true, friction: 0.0 }
 		)

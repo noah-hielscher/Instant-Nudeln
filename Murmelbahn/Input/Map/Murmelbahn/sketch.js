@@ -867,6 +867,34 @@ function scene7() {
 			{ isSensor: true, isStatic: true }
 		)
 	);
+	//Pusher
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1100,
+				y: 300,
+				w: 200,
+				h: 40,
+				force: { x: -0.056, y: 0.026 },
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 800,
+				y: 220,
+				w: 250,
+				h: 40,
+				force: { x: -0.056, y: 0.026 },
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+
 	//Path
 	blocks.push(
 		new BlockCore(

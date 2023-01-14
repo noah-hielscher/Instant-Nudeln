@@ -7938,8 +7938,8 @@ var Body = __webpack_require__(6);
             events: [],
             plugin: {},
             gravity: {
-                x: 0.001,
-                y: 0,
+                x: 0,
+                y: 1,
                 scale: 0.001
             },
             timing: {

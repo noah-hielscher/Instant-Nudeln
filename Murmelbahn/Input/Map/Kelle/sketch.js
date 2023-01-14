@@ -1,16 +1,16 @@
-Homeworks.aufgabe = 7;
+//Matter.use("matter-wrap");
 
 const Engine = Matter.Engine;
 const Runner = Matter.Runner;
 const Bodies = Matter.Bodies;
 const Events = Matter.Events;
 const World = Matter.World;
+let colors;
 
 // the Matter engine to animate the world
 let engine;
 let world;
 let mouse;
-let ball;
 let isDrag = false;
 
 // an array to contain all the blocks created
@@ -18,11 +18,9 @@ let blocks = [];
 let flipper;
 let angle = 0;
 
-//function preload() {
-	//poly = loadImage("./img/poly.png");
-	//ballImg = loadImage("./img/ball.png");
-	//boxImg = loadImage("./img/box.png");
-//}
+function preload() {
+
+}
 
 function setup() {
 	let canvas = createCanvas(1280, 720);
@@ -41,7 +39,7 @@ function setup() {
 				h: 15,
 				color: "yellow",
 			},
-			{ isStatic: true }
+			{isStatic: true}
 		)
 	);
 
@@ -79,9 +77,8 @@ function setup() {
 			{
 				x: 1000,
 				y: 290,
-				ximage: boxImg,
 				color: "blue",
-				offset: { x: 0, y: -20.0 },
+				offset: {x: 0,y: -20.0},
 			},
 			{
 				parts: [
@@ -106,6 +103,7 @@ function setup() {
 		draw: true,
 		color: "green",
 	});
+	
 
 	flipper = new Block(
 		world,
@@ -114,18 +112,15 @@ function setup() {
 			y: 360,
 			w: 48,
 			h: 10,
-			color: "yellow",
+			color: "yellow"
 		},
-		{ isStatic: false, restitution: 2, density: 0.01 }
+		{isStatic: false, restitution: 2, density: 0.01 }
 	);
 	blocks.push(flipper);
 
 	flipper.constrainTo(kelle, {
 		pointA: { x: 0, y: 0 },
-		pointB: {
-			x: -50,
-			y: 65,
-		},
+		pointB: { x: -50, y: 65 },
 		length: 0,
 		stiffness: 0.3,
 		draw: true,
@@ -137,7 +132,7 @@ function setup() {
 			world,
 			{
 				x: 1000,
-				y: 800,
+				y: 720,
 				w: 2000,
 				h: 50,
 				color: "gray",
@@ -145,8 +140,6 @@ function setup() {
 			{ isStatic: true }
 		)
 	);
-
-	//für Flipper hohe restitution hinzufügen,
 
 	blocks.push(
 		new BlockCore(
@@ -158,7 +151,7 @@ function setup() {
 				h: 20,
 				color: "gray",
 			},
-			{ angle: PI / 6, isStatic: true }
+			{angle: PI / 6, isStatic: true }
 		)
 	);
 
@@ -166,7 +159,7 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: windowWidth + 100,
+				x: 1380,
 				y: 450,
 				w: 800,
 				h: 20,
@@ -176,7 +169,6 @@ function setup() {
 		)
 	);
 
-	// the ball has a label and can react on collisions
 	blocks.push(
 		new Ball(
 			world,
@@ -188,7 +180,7 @@ function setup() {
 			},
 			{
 				label: "xMurmel",
-				restitution: 0,
+				restitution : 0,
 				density: 0.01,
 				friction: 0,
 				mass: 5,
@@ -215,8 +207,17 @@ function setup() {
 					r: 15,
 					color: "yellow",
 				},
-				{ isStatic: false, restitution: 0.9, label: "Murmel" }
+				{
+					isStatic: false,
+					restitution: 0.9,
+					label: "Murmel",
+					density: 0.5,
+				}
 			);
+			Matter.Body.applyForce(ball.body, ball.body.position, {
+				x: 0.2,
+				y: -2,
+			});
 			blocks.push(ball);
 		}
 		isDrag = false;
@@ -236,10 +237,35 @@ function setup() {
 	});
 	// run the engine
 	Runner.run(engine);
+	document.addEventListener("keydown", onKeyDown);
 }
 
 function draw() {
-	background(0, 20);
+	background(0,20);
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
+}
+
+//das "event" muss drinnen stehen, damit sich die Seite nicht durch Space bewegt
+
+function onKeyDown(event) {
+	switch (event.key) {
+		case " ":
+			console.log("SPACE");
+
+			if (ball.body.velocity.y < -3.96) {
+				console.log("speed erreicht");
+			}
+			if (ball.body.velocity.y > -3.96) {
+				console.log("speed wir derhöht");
+				event.preventDefault();
+				Matter.Body.applyForce(ball.body, ball.body.position, {
+					x: 0.0007,
+					y: 0,
+				});
+			}
+			break;
+		default:
+			console.log(event.key);
+	}
 }

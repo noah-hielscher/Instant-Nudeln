@@ -19,6 +19,9 @@ let scenes = [scene1, scene2, scene3, scene4, scene5, scene6, scene7, scene8];
 let scene = 0;
 let sceneBack, sceneFore;
 
+//Magnet
+let magnet;
+
 //Ei Statusse
 let normal, black, cracked, blase, crackedOpen, done;
 let ei;
@@ -969,6 +972,34 @@ function scene8() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+	//Boden
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 200,
+				y: 500,
+				w: 1000,
+				h: 50,
+				color: "red",
+			},
+			{ isStatic: true }
+		)
+	);
+	//Magnet
+	magnet = new Magnet(
+		world,
+		{
+			x: 400,
+			y: 200,
+			r: 100,
+			color: "grey",
+			attraction: 0.4e-5,
+		},
+		{ isStatic: true }
+	);
+	magnet.addAttracted(ei);
+	blocks.push(magnet);
 
 	//Automatischer Szenen wechsler
 	blocks.push(
@@ -1002,7 +1033,6 @@ function switchScene(newScene) {
 function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
-	mouse.draw();
 	ei.draw();
 }
 

@@ -47,7 +47,7 @@ function setup() {
 			scale: 0.8,
 			color: "black",
 		},
-		{ label: "Murmel", isStatic: false, friction: 1.0, density: 0.01 }
+		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
 
 	blocks.push(

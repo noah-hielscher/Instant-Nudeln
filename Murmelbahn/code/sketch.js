@@ -964,8 +964,8 @@ function scene8() {
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 118,
-			y: 0,
+			x: 250,
+			y: 400,
 			image: blase,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
@@ -977,10 +977,10 @@ function scene8() {
 		new BlockCore(
 			world,
 			{
-				x: 200,
-				y: 500,
-				w: 1000,
-				h: 50,
+				x: 250,
+				y: 600,
+				w: 200,
+				h: 20,
 				color: "red",
 				trigger: () => {
 					console.log("magnet an");
@@ -999,7 +999,7 @@ function scene8() {
 			y: 200,
 			r: 100,
 			color: "grey",
-			attraction: 0.4e-5,
+			attraction: 0.5e-4,
 		},
 		{ isStatic: true }
 	);

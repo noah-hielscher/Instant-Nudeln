@@ -37,15 +37,15 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
+	//ei
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 480,
-			y: 200,
-			image: normal,
+			x: 118,
+			y: 0,
+			image: blase,
 			fromFile: "./pathei.svg",
-			scale: 0.8,
-			color: "black",
+			scale: 1,
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
@@ -146,7 +146,7 @@ function setup() {
 		{ isStatic: true }
 	);
 
-	//magnet.addAttracted(ball);
+	magnet.addAttracted(ei);
 
 	// add a mouse so that we can manipulate Matter objects
 	mouse = new Mouse(engine, canvas, { stroke: "blue", strokeWeight: 3 });

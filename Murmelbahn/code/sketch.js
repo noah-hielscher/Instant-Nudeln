@@ -982,6 +982,11 @@ function scene8() {
 				w: 1000,
 				h: 50,
 				color: "red",
+				trigger: () => {
+					console.log("magnet an");
+					//Magnet wird ausgeschgalten
+					magnet.addAttracted(ei);
+				},
 			},
 			{ isStatic: true }
 		)
@@ -999,8 +1004,12 @@ function scene8() {
 		{ isStatic: true }
 	);
 	magnet.addAttracted(ei);
-	blocks.push(magnet);
 
+	//blocks.push(magnet);
+	//magnet.attract(ei);
+	//magnet.draw();
+	//magnet.draw();
+	//magnet.addAttracted(ei);
 	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(
@@ -1033,6 +1042,10 @@ function switchScene(newScene) {
 function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
+	if (scene == 7) {
+		magnet.attract();
+		magnet.draw();
+	}
 	//magnet.attract();
 	//magnet.draw();
 	ei.draw();

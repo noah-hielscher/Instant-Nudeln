@@ -998,7 +998,7 @@ function scene8() {
 		},
 		{ isStatic: true }
 	);
-	//magnet.addAttracted(ei);
+	magnet.addAttracted(ei);
 	blocks.push(magnet);
 
 	//Automatischer Szenen wechsler
@@ -1033,6 +1033,8 @@ function switchScene(newScene) {
 function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
+	//magnet.attract();
+	//magnet.draw();
 	ei.draw();
 }
 

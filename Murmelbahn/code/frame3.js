@@ -69,6 +69,7 @@ function scene3() {
 				h: 40,
 				force: { x: -0.058, y: -0.012 },
 				trigger: () => {
+					staub.play();
 					ei.attributes.image = black;
 					sceneEffect.style["background"] =
 						'url("./Frame3/staubeffect.png") no-repeat';

@@ -165,6 +165,7 @@ function onKeyDown(event) {
 	if (musikan == 0) {
 		console.log("Musik wird abgespielt");
 		audioPlayer.play();
+		audioPlayer.volume = 0.5;
 		musikan = 1;
 	}
 }

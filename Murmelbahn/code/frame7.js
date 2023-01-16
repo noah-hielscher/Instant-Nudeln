@@ -46,7 +46,7 @@ function scene7() {
 				w: 30,
 				h: 100,
 				trigger: () => {
-					eiX = 0.03;
+					eiX = 0.04;
 					eiY = 0.03;
 					engine.gravity.x = 0;
 					engine.gravity.y = -1;

@@ -1,6 +1,7 @@
 function scene8() {
 	sceneBack.style["background"] = 'url("./frame8/background.png") no-repeat';
 	sceneFore.style["background"] = 'url("./frame8/Person.png") no-repeat';
+	sceneEffect.style["background"] = "";
 	//Ei Hüpfen & Physik auf normal
 	eiX = 0.04;
 	eiY = -0.04;

@@ -1,5 +1,6 @@
 function scene5() {
 	sceneBack.style["background"] = 'url("./frame5/background.png") no-repeat';
+	sceneFore.style["background"] = "";
 	//Ei Hüpfen wir erstärkt
 	eiX = 0.018;
 	eiY = -0.062;
@@ -10,7 +11,7 @@ function scene5() {
 		{
 			x: 420,
 			y: 0,
-			image: statusNormal,
+			image: black,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},
@@ -91,7 +92,7 @@ function scene5() {
 			trigger: () => {
 				Matter.Body.setStatic(brett1a.body, false);
 				Matter.Body.setStatic(brett1b.body, false);
-				ei.attributes.image = cracked;
+				ei.attributes.image = crackedblack;
 			},
 		},
 		{ isStatic: true }

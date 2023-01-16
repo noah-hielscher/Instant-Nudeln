@@ -10,7 +10,7 @@ function scene7() {
 		{
 			x: 118,
 			y: 0,
-			image: cracked,
+			image: crackedblack,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},
@@ -30,6 +30,7 @@ function scene7() {
 					eiY = 0.03;
 					engine.gravity.x = 0;
 					engine.gravity.y = -1;
+					ei.attributes.image = cracked;
 				},
 			},
 			{ isSensor: true, isStatic: true }

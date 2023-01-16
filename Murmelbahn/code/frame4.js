@@ -1,5 +1,6 @@
 function scene4() {
 	sceneBack.style["background"] = 'url("./frame4/background.png") no-repeat';
+	sceneFore.style["background"] = 'url("./Frame4/staub2.png") no-repeat';
 
 	let kamin2, kamin3;
 

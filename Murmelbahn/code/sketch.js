@@ -23,7 +23,7 @@ let sceneBack, sceneFore;
 let magnet;
 
 //Ei Statusse
-let statusNormal, black, cracked, blase, crackedOpen, done;
+let statusNormal, black, cracked, crackedblack, blase, crackedOpen, done;
 let ei;
 //Ei Bewegung
 let eiX = 0.04;
@@ -40,6 +40,7 @@ function preload() {
 	statusNormal = loadImage("./eggState/normal.png");
 	black = loadImage("./eggState/black.png");
 	cracked = loadImage("./eggState/cracked.png");
+	crackedblack = loadImage("./eggState/crackedblack.png");
 	blase = loadImage("./eggState/blase.png");
 	crackedOpen = loadImage("./eggState/crackedOpen.png");
 	done = loadImage("./eggState/done.png");

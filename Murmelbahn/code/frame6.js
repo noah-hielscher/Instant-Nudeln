@@ -9,7 +9,7 @@ function scene6() {
 		{
 			x: ei.body.position.x,
 			y: 0,
-			image: cracked,
+			image: crackedblack,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},

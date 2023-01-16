@@ -1,6 +1,6 @@
 function scene3() {
 	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
-	sceneFore.style["background"] = "";
+	sceneFore.style["background"] = 'url("./Frame3/staub1.png") no-repeat';
 
 	let kamin1;
 
@@ -10,7 +10,7 @@ function scene3() {
 		{
 			x: 878,
 			y: 0,
-			image: black,
+			image: statusNormal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},
@@ -68,6 +68,9 @@ function scene3() {
 				w: 180,
 				h: 40,
 				force: { x: -0.058, y: -0.012 },
+				trigger: () => {
+					ei.attributes.image = black;
+				},
 			},
 			{ isSensor: true, isStatic: true, angle: PI / -15 }
 		)

@@ -70,6 +70,8 @@ function scene3() {
 				force: { x: -0.058, y: -0.012 },
 				trigger: () => {
 					ei.attributes.image = black;
+					sceneEffect.style["background"] =
+						'url("./Frame3/staubeffect.png") no-repeat';
 				},
 			},
 			{ isSensor: true, isStatic: true, angle: PI / -15 }

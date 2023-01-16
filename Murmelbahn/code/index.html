@@ -125,6 +125,13 @@
 				z-index: 1;
 				pointer-events: none;
 			}
+			#scene-foregroundeffect {
+				position: absolute;
+				width: 1280px;
+				height: 720px;
+				z-index: 1;
+				pointer-events: none;
+			}
 		</style>
 	</head>
 
@@ -133,6 +140,7 @@
 		<!-- p5 canvas is generated on run time -->
 		<div id="thecanvas"></div>
 		<div id="scene-foreground"></div>
+		<div id="scene-foregroundeffect"></div>
 		<body onmousedown="playMusic()">
 			<audio id="audioPlayer" src="sounds/bgmusik.wav"></audio>
 			<script>

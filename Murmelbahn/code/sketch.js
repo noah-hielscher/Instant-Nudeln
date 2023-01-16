@@ -112,6 +112,7 @@ function setup() {
 	document.addEventListener("keydown", onKeyDown);
 	sceneBack = document.getElementById("scene-background");
 	sceneFore = document.getElementById("scene-foreground");
+	sceneEffect = document.getElementById("scene-foregroundeffect");
 	switchScene(0);
 }
 

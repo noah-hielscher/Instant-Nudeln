@@ -1,5 +1,6 @@
 function scene1() {
 	sceneBack.style["background"] = 'url("./frame1/background.png") no-repeat';
+	sceneFore.style["background"] = "";
 	let wolken2, wolken3;
 	//ei
 	ei = new PolygonFromSVG(

@@ -1,5 +1,6 @@
 function scene7() {
 	sceneBack.style["background"] = 'url("./frame7/background.png") no-repeat';
+	sceneFore.style["background"] = "";
 	//Ei Hüpfen wir erstärkt
 	eiX = 0.04;
 	eiY = -0.04;

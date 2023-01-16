@@ -1,5 +1,6 @@
 function scene6() {
 	sceneBack.style["background"] = 'url("./frame6/background.png") no-repeat';
+	sceneFore.style["background"] = "";
 	//ei Bewegung
 	eiX = 0.04;
 	eiY = -0.02;

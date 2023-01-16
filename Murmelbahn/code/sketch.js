@@ -32,6 +32,9 @@ let eiY = -0.02;
 //Objects in the Kitchen
 let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
 
+//Musik an
+let musikan = 0;
+
 function preload() {
 	//preloading - Egg Images
 	statusNormal = loadImage("./eggState/normal.png");
@@ -138,7 +141,6 @@ function onKeyDown(event) {
 	switch (event.key) {
 		case " ":
 			console.log("SPACE");
-
 			if (ei.body.velocity.y < -3.96) {
 			}
 			if (ei.body.velocity.y > -3.96) {
@@ -157,5 +159,10 @@ function onKeyDown(event) {
 			break;
 		default:
 			console.log(event.key);
+	}
+	if (musikan == 0) {
+		console.log("Musik wird abgespielt");
+		audioPlayer.play();
+		musikan = 1;
 	}
 }

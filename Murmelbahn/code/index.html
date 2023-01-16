@@ -133,5 +133,14 @@
 		<!-- p5 canvas is generated on run time -->
 		<div id="thecanvas"></div>
 		<div id="scene-foreground"></div>
+		<body onmousedown="playMusic()">
+			<audio id="audioPlayer" src="sounds/bgmusik.wav"></audio>
+			<script>
+				function playMusic() {
+					var audioPlayer = document.getElementById("audioPlayer");
+					audioPlayer.play();
+				}
+			</script>
+		</body>
 	</body>
 </html>

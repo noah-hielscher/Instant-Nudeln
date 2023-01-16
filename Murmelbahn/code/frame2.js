@@ -100,6 +100,7 @@ function scene2() {
 				h: 40,
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
+					sky.pause();
 				},
 			},
 			{ isSensor: true, isStatic: true }

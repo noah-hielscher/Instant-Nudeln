@@ -166,6 +166,8 @@ function onKeyDown(event) {
 		console.log("Musik wird abgespielt");
 		audioPlayer.play();
 		audioPlayer.volume = 0.5;
+		sky.play();
+		sky.volume = 1;
 		musikan = 1;
 	}
 }

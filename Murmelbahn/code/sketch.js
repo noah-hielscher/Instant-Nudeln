@@ -35,6 +35,8 @@ let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
 //Musik an
 let musikan = 0;
 
+//hallo0
+
 function preload() {
 	//preloading - Egg Images
 	statusNormal = loadImage("./eggState/normal.png");

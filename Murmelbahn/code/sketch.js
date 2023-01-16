@@ -211,6 +211,7 @@ function scene1() {
 
 function scene2() {
 	sceneBack.style["background"] = 'url("./frame2/background.png") no-repeat';
+	sceneFore.style["background"] = 'url("./frame2/Schornstein.png") no-repeat';
 	let wolken2, wolken3;
 
 	//ei
@@ -319,7 +320,7 @@ function scene2() {
 
 function scene3() {
 	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
-	sceneFore.style["foreground"] = 'url("./frame2/Schornstein.png") no-repeat';
+	sceneFore.style["background"] = "";
 
 	let kamin1;
 
@@ -954,6 +955,7 @@ function scene7() {
 }
 function scene8() {
 	sceneBack.style["background"] = 'url("./frame8/background.png") no-repeat';
+	sceneFore.style["background"] = 'url("./frame8/Person.png") no-repeat';
 	//Ei Hüpfen & Physik auf normal
 	eiX = 0.04;
 	eiY = -0.04;
@@ -967,7 +969,7 @@ function scene8() {
 			x: 250,
 			y: 400,
 			image: blase,
-			fromFile: "./eggState/pathei.svg",
+			fromFile: "./eggState/pathblase.svg",
 			scale: 1,
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
@@ -991,26 +993,38 @@ function scene8() {
 			{ isStatic: true }
 		)
 	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 850,
+				y: 525,
+				w: 800,
+				h: 20,
+			},
+			{ isStatic: true, restitution: 0.5, friction: 0.001 }
+		)
+	);
 	//Magnet
 	magnet = new Magnet(
 		world,
 		{
-			x: 400,
+			x: 600,
 			y: 200,
-			r: 100,
+			r: 20,
 			color: "grey",
-			attraction: 0.5e-4,
+			attraction: 0.2e-4,
+			trigger: () => {
+				//Normaler Ei Status und EI Path
+				ei.attributes.image = statusNormal;
+				//Magnet wird ausgeschgalten
+				magnet.attributes.attraction = 0.0;
+			},
 		},
 		{ isStatic: true }
 	);
-	//magnet.addAttracted(ei);
+	magnet.addAttracted(ei);
 
-	//blocks.push(magnet);
-	//magnet.attract(ei);
-	//magnet.draw();
-	//magnet.draw();
-	//magnet.addAttracted(ei);
-	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(
 			world,
@@ -1043,8 +1057,8 @@ function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
 	if (scene == 7) {
-		//magnet.draw();
-		//magnet.attract();
+		magnet.draw();
+		magnet.attract();
 	}
 	//magnet.attract();
 	//magnet.draw();

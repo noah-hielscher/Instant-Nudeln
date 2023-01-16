@@ -13,13 +13,17 @@ let world;
 let mouse;
 let isDrag = false;
 
+let kelle; 
+let kelleImage;
+
 // an array to contain all the blocks created
 let blocks = [];
 let flipper;
 let angle = 0;
 
 function preload() {
-
+	kelleImage = loadImage("./kelle.png");
+	
 }
 
 function setup() {
@@ -33,7 +37,7 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: 800,
+				x: 700,
 				y: 200,
 				w: 160,
 				h: 15,
@@ -47,7 +51,7 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: 600,
+				x: 500,
 				y: 100,
 				w: 300,
 				h: 15,
@@ -71,12 +75,28 @@ function setup() {
 		))
 	);
 
+	//kelle
+	kelle = new PolygonFromSVG(
+		world,
+		{
+			x: 200,
+			y: 200,
+			image: kelleImage,
+			fromFile: "./pathKelle.svg",
+			scale: 1,
+			color: "red",
+		},
+		{ isStatic: true }
+	);
+		blocks.push(kelle);
+
 	blocks.push(
 		(kelle = new Parts(
 			world,
 			{
 				x: 1000,
 				y: 290,
+				image: kelleImage,
 				color: "blue",
 				offset: {x: 0,y: -20.0},
 			},
@@ -91,6 +111,7 @@ function setup() {
 				isStatic: false,
 				friction: -0.3,
 				frictionAir: -0.001,
+				
 			}
 		))
 	);
@@ -114,7 +135,7 @@ function setup() {
 			h: 10,
 			color: "yellow"
 		},
-		{isStatic: false, restitution: 2, density: 0.01 }
+		{isStatic: false, restitution: 1, density: 0.01 }
 	);
 	blocks.push(flipper);
 
@@ -145,7 +166,7 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: -100,
+				x: 700,
 				y: 600,
 				w: 800,
 				h: 20,
@@ -159,9 +180,9 @@ function setup() {
 		new BlockCore(
 			world,
 			{
-				x: 1380,
+				x: 1000,
 				y: 450,
-				w: 800,
+				w: 200,
 				h: 20,
 				color: "gray",
 			},
@@ -179,11 +200,14 @@ function setup() {
 				color: "red",
 			},
 			{
-				label: "xMurmel",
-				restitution : 0,
-				density: 0.01,
-				friction: 0,
-				mass: 5,
+				
+		 	label: "Murmel",
+			isStatic: false,
+			density: 0.001,
+			restitution: 0.2,
+			friction: 0.0,
+			frictionAir: 0.0,
+				
 			}
 		)
 	);
@@ -244,6 +268,7 @@ function draw() {
 	background(0,20);
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
+	
 }
 
 //das "event" muss drinnen stehen, damit sich die Seite nicht durch Space bewegt

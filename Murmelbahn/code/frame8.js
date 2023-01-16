@@ -12,7 +12,7 @@ function scene8() {
 		world,
 		{
 			x: 250,
-			y: 400,
+			y: 600,
 			image: blase,
 			fromFile: "./eggState/pathblase.svg",
 			scale: 1,
@@ -20,24 +20,6 @@ function scene8() {
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
 	//Boden
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: 250,
-				y: 600,
-				w: 200,
-				h: 20,
-				color: "red",
-				trigger: () => {
-					console.log("magnet an");
-					//Magnet wird ausgeschgalten
-					//magnet.addAttracted(ei);
-				},
-			},
-			{ isStatic: true }
-		)
-	);
 	blocks.push(
 		new BlockCore(
 			world,

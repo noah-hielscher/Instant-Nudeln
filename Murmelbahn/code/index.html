@@ -141,14 +141,33 @@
 		<div id="thecanvas"></div>
 		<div id="scene-foreground"></div>
 		<div id="scene-foregroundeffect"></div>
-		<body onmousedown="playMusic()">
-			<audio id="audioPlayer" src="sounds/bgmusik.wav"></audio>
-			<script>
-				function playMusic() {
-					var audioPlayer = document.getElementById("audioPlayer");
-					audioPlayer.play();
-				}
-			</script>
-		</body>
+		<audio id="audioPlayer" src="sounds/bgmusik.wav"></audio>
+		<script>
+			function playMusic() {
+				var audioPlayer = document.getElementById("audioPlayer");
+				audioPlayer.play();
+			}
+		</script>
+		<audio id="abwasser" src="sounds/abwasser.wav"></audio>
+		<script>
+			function playMusic() {
+				var abwasser = document.getElementById("abwasser");
+				abwasser.play();
+			}
+		</script>
+		<audio id="watersplash" src="sounds/watersplash.wav"></audio>
+		<script>
+			function playMusic() {
+				var watersplash = document.getElementById("watersplash");
+				watersplash.play();
+			}
+		</script>
+		<audio id="kitchen" src="sounds/kitchen.wav"></audio>
+		<script>
+			function playMusic() {
+				var kitchen = document.getElementById("kitchen");
+				kitchen.play();
+			}
+		</script>
 	</body>
 </html>

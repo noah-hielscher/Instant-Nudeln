@@ -160,6 +160,8 @@ function scene6() {
 				h: 100,
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
+					abwasser.play();
+					abwasser.volume = 0.8;
 				},
 			},
 			{ isSensor: true, isStatic: true }

@@ -143,7 +143,6 @@ function onKeyDown(event) {
 	switch (event.key) {
 		case " ":
 			console.log("SPACE");
-			audioPlayer.play();
 			if (ei.body.velocity.y < -3.96) {
 			}
 			if (ei.body.velocity.y > -3.96) {

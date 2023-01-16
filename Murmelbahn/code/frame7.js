@@ -29,6 +29,8 @@ function scene7() {
 				trigger: () => {
 					sceneEffect.style["background"] =
 						'url("./Frame7/splash.png") no-repeat';
+					watersplash.play();
+					watersplash.volume = 0.7;
 				},
 			},
 			{ isSensor: true, isStatic: true }
@@ -130,6 +132,9 @@ function scene7() {
 				h: 15,
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
+					abwasser.pause();
+					kitchen.play();
+					kitchen.volume = 0.7;
 				},
 			},
 			{ isSensor: true, isStatic: true }

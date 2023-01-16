@@ -65,6 +65,7 @@ function scene2() {
 				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
 					switchScene(Math.abs(scene - 1) % scenes.length);
+					sceneFore.style["background"] = "";
 				},
 			},
 			{ isSensor: true, isStatic: true }
@@ -80,8 +81,7 @@ function scene2() {
 				h: 40,
 				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
-					//ei.body.position.x = 200;
-					//ei.body.position.y = 100;
+					sceneFore.style["background"] = "";
 					switchScene(Math.abs(scene - 1) % scenes.length);
 				},
 			},

@@ -211,7 +211,6 @@ function scene1() {
 
 function scene2() {
 	sceneBack.style["background"] = 'url("./frame2/background.png") no-repeat';
-	sceneFore.style["foreground"] = 'url("./frame2/Schornstein.png") no-repeat';
 	let wolken2, wolken3;
 
 	//ei
@@ -320,6 +319,7 @@ function scene2() {
 
 function scene3() {
 	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
+	sceneFore.style["foreground"] = 'url("./frame2/Schornstein.png") no-repeat';
 
 	let kamin1;
 

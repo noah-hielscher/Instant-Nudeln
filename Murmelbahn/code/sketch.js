@@ -23,7 +23,7 @@ let sceneBack, sceneFore;
 let magnet;
 
 //Ei Statusse
-let normal, black, cracked, blase, crackedOpen, done;
+let statusNormal, black, cracked, blase, crackedOpen, done;
 let ei;
 //Ei Bewegung
 let eiX = 0.04;
@@ -34,7 +34,7 @@ let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
 
 function preload() {
 	//preloading - Egg Images
-	normal = loadImage("./eggState/normal.png");
+	statusNormal = loadImage("./eggState/normal.png");
 	black = loadImage("./eggState/black.png");
 	cracked = loadImage("./eggState/cracked.png");
 	blase = loadImage("./eggState/blase.png");
@@ -120,7 +120,7 @@ function scene1() {
 		{
 			x: 120,
 			y: 0,
-			image: normal,
+			image: statusNormal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},
@@ -220,7 +220,7 @@ function scene2() {
 		{
 			x: ei.body.position.x,
 			y: 0,
-			image: normal,
+			image: statusNormal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},
@@ -512,7 +512,7 @@ function scene5() {
 		{
 			x: 420,
 			y: 0,
-			image: normal,
+			image: statusNormal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
 		},
@@ -985,7 +985,7 @@ function scene8() {
 				trigger: () => {
 					console.log("magnet an");
 					//Magnet wird ausgeschgalten
-					magnet.addAttracted(ei);
+					//magnet.addAttracted(ei);
 				},
 			},
 			{ isStatic: true }
@@ -1003,7 +1003,7 @@ function scene8() {
 		},
 		{ isStatic: true }
 	);
-	magnet.addAttracted(ei);
+	//magnet.addAttracted(ei);
 
 	//blocks.push(magnet);
 	//magnet.attract(ei);
@@ -1043,8 +1043,8 @@ function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
 	if (scene == 7) {
-		magnet.attract();
-		magnet.draw();
+		//magnet.draw();
+		//magnet.attract();
 	}
 	//magnet.attract();
 	//magnet.draw();

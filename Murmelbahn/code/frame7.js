@@ -17,6 +17,23 @@ function scene7() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+	//wasserspritzer
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 530,
+				y: 570,
+				w: 30,
+				h: 100,
+				trigger: () => {
+					sceneEffect.style["background"] =
+						'url("./Frame7/splash.png") no-repeat';
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 	//Bewegung & Physik ab Wasser
 	blocks.push(
 		new BlockCore(

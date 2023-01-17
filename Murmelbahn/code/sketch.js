@@ -32,6 +32,10 @@ let eiY = -0.02;
 //Objects in the Kitchen
 let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
 
+//Vogel
+let vogel;
+let vogelX = 1200;
+
 //Musik an
 let musikan = 0;
 
@@ -51,6 +55,8 @@ function preload() {
 	brett2bImage = loadImage("./frame6/brett4.png");
 	brett3aImage = loadImage("./frame6/brett5.png");
 	brett3bImage = loadImage("./frame6/brett6.png");
+	//Vogel
+	vogel = loadImage("./frame1/Vogel.png");
 }
 
 function setup() {
@@ -134,9 +140,13 @@ function draw() {
 		magnet.draw();
 		magnet.attract();
 	}
-	//magnet.attract();
-	//magnet.draw();
 	ei.draw();
+	//for (let i = 12000; i >= 0; i--) {
+	//	if (i % 10 === 0) {
+	//		console.log("Hallo");
+	//		vogelX = vogelX - 1;
+	//	}
+	//}
 }
 
 function onKeyDown(event) {

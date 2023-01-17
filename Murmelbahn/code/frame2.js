@@ -87,7 +87,6 @@ function scene2() {
 				y: 730,
 				w: 1000,
 				h: 40,
-				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
 					switchScene(Math.abs(scene - 1) % scenes.length);
 					sceneFore.style["background"] = "";
@@ -113,7 +112,6 @@ function scene2() {
 				y: 730,
 				w: 1000,
 				h: 40,
-				force: { x: -0.022, y: -0.016 },
 				trigger: () => {
 					sceneFore.style["background"] = "";
 					switchScene(Math.abs(scene - 1) % scenes.length);

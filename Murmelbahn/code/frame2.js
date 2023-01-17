@@ -91,6 +91,13 @@ function scene2() {
 				trigger: () => {
 					switchScene(Math.abs(scene - 1) % scenes.length);
 					sceneFore.style["background"] = "";
+					sky.pause();
+					audioPlayer.pause();
+					audioPlayer.play();
+					audioPlayer.volume = 0.3;
+					sky.play();
+					audioPlayer.currentTime = 0;
+					sky.volume = 1;
 				},
 			},
 			{ isSensor: true, isStatic: true }
@@ -108,6 +115,13 @@ function scene2() {
 				trigger: () => {
 					sceneFore.style["background"] = "";
 					switchScene(Math.abs(scene - 1) % scenes.length);
+					sky.pause();
+					audioPlayer.pause();
+					audioPlayer.play();
+					audioPlayer.volume = 0.3;
+					sky.play();
+					audioPlayer.currentTime = 0;
+					sky.volume = 1;
 				},
 			},
 			{ isSensor: true, isStatic: true }

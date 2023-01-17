@@ -42,6 +42,7 @@ function scene8() {
 			r: 20,
 			color: "grey",
 			attraction: 0.2e-4,
+			//attraction: 0.2e-4,
 			trigger: () => {
 				//Normaler Ei Status und EI Path
 				ei.attributes.image = statusNormal;

@@ -28,6 +28,7 @@ function scene6() {
 			trigger: () => {
 				Matter.Body.setStatic(brett2a.body, false);
 				Matter.Body.setStatic(brett2b.body, false);
+				brechen.play();
 			},
 		},
 		{ isStatic: true }
@@ -44,6 +45,7 @@ function scene6() {
 			trigger: () => {
 				Matter.Body.setStatic(brett2a.body, false);
 				Matter.Body.setStatic(brett2b.body, false);
+				brechen.play();
 			},
 		},
 		{ isStatic: true }
@@ -61,6 +63,7 @@ function scene6() {
 			trigger: () => {
 				Matter.Body.setStatic(brett3a.body, false);
 				Matter.Body.setStatic(brett3b.body, false);
+				brechen.play();
 			},
 		},
 		{ isStatic: true }
@@ -77,6 +80,7 @@ function scene6() {
 			trigger: () => {
 				Matter.Body.setStatic(brett3a.body, false);
 				Matter.Body.setStatic(brett3b.body, false);
+				brechen.play();
 			},
 		},
 		{ isStatic: true }

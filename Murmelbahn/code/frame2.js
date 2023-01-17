@@ -93,6 +93,8 @@ function scene2() {
 					sceneFore.style["background"] = "";
 					sky.pause();
 					audioPlayer.pause();
+					restart.play();
+					restart.volume = 1;
 					audioPlayer.play();
 					audioPlayer.volume = 0.3;
 					sky.play();
@@ -117,6 +119,8 @@ function scene2() {
 					switchScene(Math.abs(scene - 1) % scenes.length);
 					sky.pause();
 					audioPlayer.pause();
+					restart.play();
+					restart.volume = 1;
 					audioPlayer.play();
 					audioPlayer.volume = 0.3;
 					sky.play();

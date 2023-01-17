@@ -7,7 +7,7 @@ function scene1() {
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 125,
+			x: 140,
 			y: -850,
 			image: statusNormal,
 			fromFile: "./eggState/pathei.svg",

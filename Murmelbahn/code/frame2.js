@@ -52,6 +52,31 @@ function scene2() {
 		{ isStatic: true, friction: 0.0 }
 	);
 	blocks.push(wolken3);
+	//Path Schornstein
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 470,
+				y: 650,
+				w: 20,
+				h: 250,
+			},
+			{ isStatic: true }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 760,
+				y: 650,
+				w: 20,
+				h: 250,
+			},
+			{ isStatic: true }
+		)
+	);
 
 	//Automatischer Resetter
 	blocks.push(

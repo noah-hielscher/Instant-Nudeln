@@ -134,7 +134,8 @@ function scene7() {
 					switchScene((scene + 1) % scenes.length);
 					abwasser.pause();
 					kitchen.play();
-					kitchen.volume = 0.7;
+					kitchen.volume = 0.9;
+					engine.gravity.y = 0;
 				},
 			},
 			{ isSensor: true, isStatic: true }

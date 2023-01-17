@@ -5,8 +5,6 @@ function scene8() {
 	//Ei Hüpfen & Physik auf normal
 	eiX = 0.04;
 	eiY = -0.04;
-	engine.gravity.x = 0;
-	engine.gravity.y = 0;
 
 	//ei
 	ei = new PolygonFromSVG(
@@ -49,7 +47,7 @@ function scene8() {
 				//Magnet wird ausgeschgalten
 				magnet.attributes.attraction = 0.0;
 				//Gravity wird zurückgestellt
-				engine.gravity.x = 0;
+				//engine.gravity.x = 0;
 				engine.gravity.y = 1;
 			},
 		},

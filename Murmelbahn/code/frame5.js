@@ -114,6 +114,7 @@ function scene5() {
 				Matter.Body.setStatic(brett1a.body, false);
 				Matter.Body.setStatic(brett1b.body, false);
 				ei.attributes.image = crackedblack;
+				brechen.play();
 			},
 		},
 		{ isStatic: true }

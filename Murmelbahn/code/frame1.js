@@ -7,8 +7,8 @@ function scene1() {
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 120,
-			y: 0,
+			x: 125,
+			y: -850,
 			image: statusNormal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,
@@ -16,6 +16,18 @@ function scene1() {
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
 
+	//Vogel
+	Vogeldraw = new PolygonFromSVG(
+		world,
+		{
+			x: vogelX,
+			y: 20,
+			image: vogel,
+			fromFile: "./eggState/pathei.svg",
+			scale: 1,
+		},
+		{ label: "Murmel", isStatic: true }
+	);
 	//Path
 	wolken2 = new PolygonFromSVG(
 		world,

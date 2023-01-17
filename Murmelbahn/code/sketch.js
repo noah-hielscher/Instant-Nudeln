@@ -35,6 +35,7 @@ let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
 //Vogel
 let vogel;
 let vogelX = 1200;
+let Vogeldraw;
 
 //Musik an
 let musikan = 0;
@@ -136,17 +137,23 @@ function switchScene(newScene) {
 function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
+	//Magnet
 	if (scene == 7) {
 		magnet.draw();
 		magnet.attract();
 	}
 	ei.draw();
-	//for (let i = 12000; i >= 0; i--) {
-	//	if (i % 10 === 0) {
-	//		console.log("Hallo");
-	//		vogelX = vogelX - 1;
-	//	}
-	//}
+	//Vogelfliegen
+	if (scene == 0) {
+		for (let i = 12000; i >= 0; i--) {
+			if (i % 1000 === 0) {
+				//console.log("Hallo");
+				//vogelX = vogelX - 1;
+				Vogeldraw.body.position.x = Vogeldraw.body.position.x - 1;
+				Vogeldraw.draw();
+			}
+		}
+	}
 }
 
 function onKeyDown(event) {

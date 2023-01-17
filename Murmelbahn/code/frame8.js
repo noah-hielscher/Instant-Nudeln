@@ -5,6 +5,7 @@ function scene8() {
 	//Ei Hüpfen & Physik auf normal
 	eiX = 0.04;
 	eiY = -0.04;
+	engine.gravity.y = 0;
 
 	//ei
 	ei = new PolygonFromSVG(
@@ -43,7 +44,7 @@ function scene8() {
 			trigger: () => {
 				blasesound.play();
 				//Normaler Ei Status und EI Path
-				ei.attributes.image = statusNormal;
+				ei.attributes.image = cracked;
 				//Magnet wird ausgeschgalten
 				magnet.attributes.attraction = 0.0;
 				//Gravity wird zurückgestellt

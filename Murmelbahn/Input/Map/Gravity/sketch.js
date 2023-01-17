@@ -28,9 +28,13 @@ function setup() {
 	world = engine.world;
 
 	// use svg file to create the corresponding polygon	
-	new BlocksFromSVG(world, "./img/Clouds1-Test.svg", blocks, {
+	new BlocksFromSVG(world, "./img/", blocks, {
 		isStatic: true,
 	});
+
+
+
+
 
 	// the ball has a label and can react on collisions
 	ball = new Ball(
@@ -107,7 +111,7 @@ function setup() {
 
 function draw() {
 	clear();
-	//background(0);
+	background(0);
 	blocks.forEach((block) => block.draw());
 	mouse.draw();
 }

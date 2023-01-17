@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="libraries/decomp.min.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="./libraries/p5.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="./libraries/matter.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="./classes/BlockCore.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="./classes/Block.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="./classes/Ball.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="./classes/Mouse.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="classes/PolygonFromSVG.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="classes/BlocksFromSVG.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="classes/Magnet.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame1.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame2.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame3.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame4.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame5.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame6.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame7.js"
+		></script>
+
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="frame8.js"
+		></script>
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="sketch.js"
+		></script>
+		<style>
+			body {
+				padding: 0;
+				margin: 0;
+			}
+
+			canvas,
+			#thecanvas {
+				position: absolute;
+				top: 0;
+			}
+
+			#scene-background {
+				position: absolute;
+				width: 1280px;
+				height: 720px;
+				background: url("./frame1/background.png") no-repeat;
+				z-index: -1;
+			}
+
+			#scene-foreground {
+				position: absolute;
+				width: 1280px;
+				height: 720px;
+				z-index: 1;
+				pointer-events: none;
+			}
+			#scene-foregroundeffect {
+				position: absolute;
+				width: 1280px;
+				height: 720px;
+				z-index: 1;
+				pointer-events: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="scene-background"></div>
+		<!-- p5 canvas is generated on run time -->
+		<div id="thecanvas"></div>
+		<div id="scene-foreground"></div>
+		<div id="scene-foregroundeffect"></div>
+		<audio id="audioPlayer" src="sounds/bgmusik.wav"></audio>
+		<script>
+			function playMusic() {
+				var audioPlayer = document.getElementById("audioPlayer");
+				audioPlayer.play();
+			}
+		</script>
+		<audio id="sky" src="sounds/himmel.wav"></audio>
+		<script>
+			function playMusic() {
+				var sky = document.getElementById("sky");
+				sky.play();
+			}
+		</script>
+		<audio id="staub" src="sounds/staub.wav"></audio>
+		<script>
+			function playMusic() {
+				var staub = document.getElementById("staub");
+				staub.play();
+			}
+		</script>
+		<audio id="abwasser" src="sounds/abwasser.wav"></audio>
+		<script>
+			function playMusic() {
+				var abwasser = document.getElementById("abwasser");
+				abwasser.play();
+			}
+		</script>
+		<audio id="watersplash" src="sounds/watersplash.wav"></audio>
+		<script>
+			function playMusic() {
+				var watersplash = document.getElementById("watersplash");
+				watersplash.play();
+			}
+		</script>
+		<audio id="kitchen" src="sounds/kitchen.wav"></audio>
+		<script>
+			function playMusic() {
+				var kitchen = document.getElementById("kitchen");
+				kitchen.play();
+			}
+		</script>
+		<audio id="jump" src="sounds/jump.wav"></audio>
+		<script>
+			function playMusic() {
+				var jump = document.getElementById("jump");
+				jump.play();
+			}
+		</script>
+	</body>
+</html>

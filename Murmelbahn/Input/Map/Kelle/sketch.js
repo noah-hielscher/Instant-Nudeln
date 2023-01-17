@@ -22,7 +22,7 @@ let flipper;
 let angle = 0;
 
 function preload() {
-	kelleImage = loadImage("./kelle.png");
+	kelleImage = loadImage("./img/Kelletest1.png");
 	
 }
 
@@ -82,7 +82,7 @@ function setup() {
 			x: 200,
 			y: 200,
 			image: kelleImage,
-			fromFile: "./pathKelle.svg",
+			fromFile: "./img/vectornew.svg",
 			scale: 1,
 			color: "red",
 		},

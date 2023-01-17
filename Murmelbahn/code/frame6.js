@@ -2,8 +2,8 @@ function scene6() {
 	sceneBack.style["background"] = 'url("./frame6/background.png") no-repeat';
 	sceneFore.style["background"] = "";
 	//ei Bewegung
-	eiX = 0.04;
-	eiY = -0.02;
+	eiX = 0.018;
+	eiY = -0.062;
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -147,7 +147,7 @@ function scene6() {
 			{
 				x: 500,
 				y: 700,
-				w: 1280,
+				w: 1480,
 				h: 40,
 			},
 			{ isStatic: true, restitution: 0.5, friction: 0.001 }
@@ -158,9 +158,9 @@ function scene6() {
 		new BlockCore(
 			world,
 			{
-				x: 920,
+				x: 1150,
 				y: 650,
-				w: 120,
+				w: 140,
 				h: 100,
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);

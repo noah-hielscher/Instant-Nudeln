@@ -6,14 +6,14 @@ function scene8() {
 	eiX = 0.04;
 	eiY = -0.04;
 	engine.gravity.x = 0;
-	engine.gravity.y = 1;
+	engine.gravity.y = 0;
 
 	//ei
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 250,
-			y: 600,
+			x: 260,
+			y: 470,
 			image: blase,
 			fromFile: "./eggState/pathblase.svg",
 			scale: 1,
@@ -37,17 +37,20 @@ function scene8() {
 	magnet = new Magnet(
 		world,
 		{
-			x: 600,
-			y: 200,
+			x: 720,
+			y: 258,
 			r: 20,
-			color: "grey",
-			attraction: 0.2e-4,
+			attraction: 0.3e-6,
 			//attraction: 0.2e-4,
 			trigger: () => {
+				blasesound.play();
 				//Normaler Ei Status und EI Path
 				ei.attributes.image = statusNormal;
 				//Magnet wird ausgeschgalten
 				magnet.attributes.attraction = 0.0;
+				//Gravity wird zurückgestellt
+				engine.gravity.x = 0;
+				engine.gravity.y = 1;
 			},
 		},
 		{ isStatic: true }

@@ -8,7 +8,7 @@ function scene1() {
 		world,
 		{
 			x: 140,
-			y: -850,
+			y: -880,
 			image: statusNormal,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,

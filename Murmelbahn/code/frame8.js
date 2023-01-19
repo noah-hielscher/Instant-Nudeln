@@ -2,7 +2,6 @@ function scene8() {
 	sceneBack.style["background"] = 'url("./frame8/background.png") no-repeat';
 	sceneFore.style["background"] = 'url("./frame8/Person.png") no-repeat';
 	sceneEffect.style["background"] = "";
-	//Ei dichte
 
 	//Ei Hüpfen & Physik auf normal
 	eiX = 0.04;
@@ -57,18 +56,19 @@ function scene8() {
 		},
 		{ isStatic: true }
 	);
-	//magnet.addAttracted(ei.body);
-
+	//Automatischer Szenenwechsler
 	blocks.push(
 		new BlockCore(
 			world,
 			{
-				x: 980,
-				y: 0,
-				w: 250,
-				h: 15,
+				x: 1280,
+				y: 400,
+				w: 20,
+				h: 900,
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
+					//Gravity der Kochplatte
+					engine.gravity.y = 0.4;
 				},
 			},
 			{ isSensor: true, isStatic: true }

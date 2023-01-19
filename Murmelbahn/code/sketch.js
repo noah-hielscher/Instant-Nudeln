@@ -15,7 +15,17 @@ let isDrag = false;
 let blocks = [];
 
 //Szenenwechsel
-let scenes = [scene1, scene2, scene3, scene4, scene5, scene6, scene7, scene8];
+let scenes = [
+	scene1,
+	scene2,
+	scene3,
+	scene4,
+	scene5,
+	scene6,
+	scene7,
+	scene8,
+	scene9,
+];
 let scene = 0;
 let sceneBack, sceneFore;
 

@@ -142,6 +142,7 @@ function draw() {
 	//Magnet
 	if (scene == 7) {
 		magnet.draw();
+		magnet.addAttracted(ei.body);
 		magnet.attract();
 	}
 	ei.draw();

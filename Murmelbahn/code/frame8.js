@@ -2,6 +2,8 @@ function scene8() {
 	sceneBack.style["background"] = 'url("./frame8/background.png") no-repeat';
 	sceneFore.style["background"] = 'url("./frame8/Person.png") no-repeat';
 	sceneEffect.style["background"] = "";
+	//Ei dichte
+
 	//Ei Hüpfen & Physik auf normal
 	eiX = 0.04;
 	eiY = -0.04;
@@ -39,22 +41,23 @@ function scene8() {
 			x: 720,
 			y: 258,
 			r: 20,
-			attraction: 0.3e-6,
+			attraction: 0.1e-7,
 			//attraction: 0.2e-4,
+			//0.3e-6,
 			trigger: () => {
 				blasesound.play();
 				//Normaler Ei Status und EI Path
 				ei.attributes.image = cracked;
+				ei.attributes.fromFile = "./eggState/pathei.svg";
 				//Magnet wird ausgeschgalten
 				magnet.attributes.attraction = 0.0;
 				//Gravity wird zurückgestellt
-				//engine.gravity.x = 0;
 				engine.gravity.y = 1;
 			},
 		},
 		{ isStatic: true }
 	);
-	magnet.addAttracted(ei);
+	//magnet.addAttracted(ei.body);
 
 	blocks.push(
 		new BlockCore(

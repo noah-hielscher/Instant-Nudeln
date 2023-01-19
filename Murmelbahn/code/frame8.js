@@ -68,7 +68,6 @@ function scene8() {
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
 					//Gravity der Kochplatte
-					engine.gravity.y = 0.4;
 				},
 			},
 			{ isSensor: true, isStatic: true }

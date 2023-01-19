@@ -124,6 +124,7 @@ function scene2() {
 					sky.play();
 					audioPlayer.currentTime = 0;
 					sky.volume = 1;
+					// Vogeldraw.draw();
 				},
 			},
 			{ isSensor: true, isStatic: true }

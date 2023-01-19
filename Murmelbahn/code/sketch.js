@@ -36,8 +36,8 @@ let magnet;
 let statusNormal, black, cracked, crackedblack, blase, crackedOpen, done;
 let ei;
 //Ei Bewegung
-let eiX = 0.04;
-let eiY = -0.02;
+let eiX = 0;
+let eiY = 0;
 
 //Objects in the Kitchen
 let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;

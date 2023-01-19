@@ -2,16 +2,19 @@ function scene9() {
 	sceneBack.style["background"] = 'url("./frame9/background.png") no-repeat';
 	sceneFore.style["background"] = "";
 	sceneEffect.style["background"] = "";
-
-	engine.gravity.x = 0;
+	//Gravitiy
+	//engine.gravity.x = 0;
 	engine.gravity.y = 0.4;
+
+	eiX = 0.05;
+	eiY = -0.01;
 
 	// Ei
 	ei = new PolygonFromSVG(
 		world,
 		{
-			x: 0,
-			y: ei.body.position.y,
+			x: 20,
+			y: 500,
 			image: cracked,
 			fromFile: "./eggState/pathei.svg",
 			scale: 1,

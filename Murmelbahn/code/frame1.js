@@ -3,6 +3,25 @@ function scene1() {
 	sceneFore.style["background"] = "";
 	let wolken2, wolken3;
 
+	//Erst wenn das Ei die Wolke berührt kann losgespielt werden
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 200,
+				y: 100,
+				w: 200,
+				h: 40,
+				trigger: () => {
+					//Die Bewegung wird freigestellt
+					eiX = 0.04;
+					eiY = -0.02;
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+
 	//ei
 	ei = new PolygonFromSVG(
 		world,

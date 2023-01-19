@@ -3,6 +3,10 @@ function scene2() {
 	sceneFore.style["background"] = 'url("./frame2/Schornstein.png") no-repeat';
 	let wolken2, wolken3;
 
+	//Falls die Bewegung nicht im ersten Frame freigestellt wurde
+	eiX = 0.04;
+	eiY = -0.02;
+
 	//ei
 	ei = new PolygonFromSVG(
 		world,

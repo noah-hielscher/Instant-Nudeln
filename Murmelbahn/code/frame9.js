@@ -26,7 +26,6 @@ function scene9() {
 			{
 				x: 370,
 				y: 550,
-				color: "red",
 				fromFile: "./frame9/kochloeffel.svg",
 				scale: 1,
 			},
@@ -43,10 +42,10 @@ function scene9() {
 				y: 680,
 				w: 250,
 				h: 15,
-				color: "blue",
 				trigger: () => {
 					//Sound
 					eiPfanne.play();
+					ziel.play();
 					//Bildtausch Ei
 					ei.attributes.image = done;
 					//Bewegung Spacebar wird ausgeschalten
@@ -54,6 +53,9 @@ function scene9() {
 					ei.options.isStatic = true;
 					eiX = 0;
 					eiY = 0;
+					//Hintergrundmusik
+					audioPlayer.pause();
+					kitchen.pause();
 				},
 			},
 			{ isSensor: false, isStatic: true }

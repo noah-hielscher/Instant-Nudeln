@@ -176,7 +176,7 @@ function onKeyDown(event) {
 		case " ":
 			console.log("SPACE");
 			jump.play();
-			jump.volume = 0.5;
+			jump.volume = 0.2;
 			if (ei.body.velocity.y < -3.96) {
 			}
 			if (ei.body.velocity.y > -3.96) {

@@ -160,7 +160,7 @@ function draw() {
 	ei.draw();
 	//Vogelfliegen
 	if (scene == 0) {
-		for (let i = 12000; i >= -1; i--) {
+		for (let i = 12000; i >= 1; i--) {
 			if (i % 1000 === 0) {
 				if (Vogeldraw) {
 					Vogeldraw.body.position.x = Vogeldraw.body.position.x - 1;

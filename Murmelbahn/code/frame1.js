@@ -3,6 +3,7 @@ function scene1() {
 	sceneFore.style["background"] = "";
 	let wolken2, wolken3;
 
+	vogelX = 1200;
 	//Erst wenn das Ei die Wolke berührt kann losgespielt werden
 	blocks.push(
 		new BlockCore(

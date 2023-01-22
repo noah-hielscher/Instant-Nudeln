@@ -4,10 +4,10 @@ function scene9() {
 	sceneEffect.style["background"] = "";
 	//Gravitiy
 	//engine.gravity.x = 0;
-	engine.gravity.y = 0.4;
+	engine.gravity.y = 0.7;
 
 	eiX = 0.05;
-	eiY = -0.01;
+	eiY = -0.04;
 
 	// Ei
 	ei = new PolygonFromSVG(
@@ -21,6 +21,20 @@ function scene9() {
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
+
+	//zweites ei
+	zweitesEi = new PolygonFromSVG(
+		world,
+		{
+			x: 950,
+			y: 300,
+			image: cracked,
+			fromFile: "./eggState/pathei.svg",
+			scale: 1,
+		},
+		{ isStatic: false, friction: 0.1, density: 0.001 }
+	);
+	blocks.push(zweitesEi);
 
 	//Path
 	blocks.push(
@@ -51,6 +65,7 @@ function scene9() {
 					ziel.play();
 					//Bildtausch Ei
 					ei.attributes.image = done;
+					ei.attributes.scale = 1.3;
 					//Bewegung Spacebar wird ausgeschalten
 					engine.gravity.y = 1;
 					ei.options.isStatic = true;
@@ -62,6 +77,26 @@ function scene9() {
 				},
 			},
 			{ isSensor: false, isStatic: true }
+		)
+	);
+
+	//Path fürs zweite Ei
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 950,
+				y: 350,
+				w: 800,
+				h: 20,
+				color: "red",
+			},
+			{
+				isStatic: true,
+				restitution: 0.5,
+				friction: 0.001,
+				angle: -PI / -8,
+			}
 		)
 	);
 

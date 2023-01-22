@@ -35,6 +35,7 @@ let magnet;
 //Ei Statusse
 let statusNormal, black, cracked, crackedblack, blase, crackedOpen, done;
 let ei;
+let zweitesEi;
 //Ei Bewegung
 let eiX = 0;
 let eiY = 0;

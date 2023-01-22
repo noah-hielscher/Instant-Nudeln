@@ -26,7 +26,7 @@ function scene9() {
 	zweitesEi = new PolygonFromSVG(
 		world,
 		{
-			x: 950,
+			x: 920,
 			y: 300,
 			image: cracked,
 			fromFile: "./eggState/pathei.svg",
@@ -86,16 +86,16 @@ function scene9() {
 			world,
 			{
 				x: 950,
-				y: 350,
+				y: 340,
 				w: 800,
 				h: 20,
-				color: "red",
 			},
 			{
 				isStatic: true,
+				isSensor: false,
 				restitution: 0.5,
 				friction: 0.001,
-				angle: -PI / -8,
+				angle: -PI / -20,
 			}
 		)
 	);

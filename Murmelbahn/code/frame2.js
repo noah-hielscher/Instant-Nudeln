@@ -7,8 +7,6 @@ function scene2() {
 	eiX = 0.04;
 	eiY = -0.02;
 
-	vogelX = 1200;
-
 	//ei
 	ei = new PolygonFromSVG(
 		world,
@@ -93,7 +91,23 @@ function scene2() {
 				y: 730,
 				w: 1000,
 				h: 40,
-				trigger: () => {},
+				trigger: () => {
+					//Musik Stop
+					sky.pause();
+					audioPlayer.pause();
+					restart.play();
+					restart.volume = 1;
+					//szenen Wechsel
+					sceneFore.style["background"] = "";
+					switchScene(Math.abs(scene - 1) % scenes.length);
+					//Musik Start
+					audioPlayer.play();
+					audioPlayer.volume = 0.3;
+					sky.play();
+					audioPlayer.currentTime = 0;
+					sky.volume = 1;
+					v;
+				},
 			},
 			{ isSensor: true, isStatic: true }
 		)

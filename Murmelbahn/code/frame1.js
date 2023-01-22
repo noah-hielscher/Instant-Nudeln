@@ -3,7 +3,6 @@ function scene1() {
 	sceneFore.style["background"] = "";
 	let wolken2, wolken3;
 
-	vogelX = 1200;
 	//Erst wenn das Ei die Wolke berührt kann losgespielt werden
 	blocks.push(
 		new BlockCore(
@@ -17,6 +16,7 @@ function scene1() {
 					//Die Bewegung wird freigestellt
 					eiX = 0.04;
 					eiY = -0.02;
+					console.log("spacebar aktive");
 				},
 			},
 			{ isSensor: true, isStatic: true }
@@ -40,7 +40,7 @@ function scene1() {
 	Vogeldraw = new PolygonFromSVG(
 		world,
 		{
-			x: vogelX,
+			x: 1200,
 			y: 20,
 			image: vogel,
 			fromFile: "./eggState/pathei.svg",

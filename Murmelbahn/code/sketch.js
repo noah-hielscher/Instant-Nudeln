@@ -45,7 +45,6 @@ let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
 
 //Vogel
 let vogel;
-let vogelX = 1200;
 
 //Musik an
 let musikan = 0;
@@ -158,13 +157,15 @@ function draw() {
 		magnet.draw();
 	}
 	ei.draw();
+
 	//Vogelfliegen
 	if (scene == 0) {
-		for (let i = 12000; i >= 1; i--) {
-			if (i % 1000 === 0) {
+		Vogeldraw.draw();
+		for (let i = 1200; i >= 200; i--) {
+			if (i % 100 === 0) {
 				if (Vogeldraw) {
+					console.log("hallloo");
 					Vogeldraw.body.position.x = Vogeldraw.body.position.x - 1;
-					Vogeldraw.draw();
 				} else {
 					console.log("VogelDraw existiert nicht");
 				}

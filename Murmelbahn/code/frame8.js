@@ -42,7 +42,7 @@ function scene8() {
 			r: 20,
 			attraction: 0.1e-7,
 			//attraction: 0.2e-4,
-			//0.3e-6,
+			//0.1e-6,
 			trigger: () => {
 				blasesound.play();
 				//Normaler Ei Status und EI Path
@@ -56,6 +56,8 @@ function scene8() {
 		},
 		{ isStatic: true }
 	);
+	magnet.addAttracted(ei);
+
 	//Automatischer Szenenwechsler
 	blocks.push(
 		new BlockCore(
@@ -67,7 +69,6 @@ function scene8() {
 				h: 900,
 				trigger: () => {
 					switchScene((scene + 1) % scenes.length);
-					//Gravity der Kochplatte
 				},
 			},
 			{ isSensor: true, isStatic: true }

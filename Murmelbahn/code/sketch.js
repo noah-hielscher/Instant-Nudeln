@@ -151,9 +151,10 @@ function draw() {
 	blocks.forEach((block) => block.draw());
 	//Magnet
 	if (scene == 7) {
-		magnet.draw();
-		magnet.addAttracted(ei.body);
+		//magnet.addAttracted(ei.body);
 		magnet.attract();
+		magnet.addAttracted(ei.body);
+		magnet.draw();
 	}
 	ei.draw();
 	//Vogelfliegen

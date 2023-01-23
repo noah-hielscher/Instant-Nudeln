@@ -50,7 +50,7 @@ let vogel;
 let musikan = 0;
 
 //Vogel
-let VogelDraw;
+let Vogeldraw;
 
 function preload() {
 	//preloading - Egg Images
@@ -150,21 +150,19 @@ function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
 	//Magnet
-	if (scene == 7) {
-		//magnet.addAttracted(ei.body);
-		magnet.attract();
+	if (scene == 7 && ei.body) {
 		magnet.addAttracted(ei.body);
+		magnet.attract();
 		magnet.draw();
 	}
 	ei.draw();
 
 	//Vogelfliegen
-	if (scene == 0) {
+	if (scene == 0 && Vogeldraw && Vogeldraw.body) {
 		Vogeldraw.draw();
 		for (let i = 1200; i >= 200; i--) {
 			if (i % 100 === 0) {
 				if (Vogeldraw) {
-					console.log("hallloo");
 					Vogeldraw.body.position.x = Vogeldraw.body.position.x - 1;
 				} else {
 					console.log("VogelDraw existiert nicht");

@@ -84,7 +84,7 @@ function scene2() {
 		)
 	);
 
-	//Automatischer Resetter
+	//Automatischer Resetter unten
 	blocks.push(
 		new BlockCore(
 			world,
@@ -125,6 +125,72 @@ function scene2() {
 				y: 730,
 				w: 1000,
 				h: 40,
+				trigger: () => {
+					//Musik Stop
+					sky.pause();
+					audioPlayer.pause();
+					restart.play();
+					restart.volume = 1;
+					//szenen Wechsel
+					sceneFore.style["background"] = "";
+					switchScene(Math.abs(scene - 1) % scenes.length);
+					//Bewegung einfrieren
+					eiX = 0;
+					eiY = 0;
+					console.log("Bewegun eingefrohren");
+					//Musik Start
+					audioPlayer.play();
+					audioPlayer.volume = 0.3;
+					sky.play();
+					audioPlayer.currentTime = 0;
+					sky.volume = 1;
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+
+	//Automatischer Resetter Bildschirmrand
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 0,
+				y: 350,
+				w: 30,
+				h: 800,
+				trigger: () => {
+					//Musik Stop
+					sky.pause();
+					audioPlayer.pause();
+					restart.play();
+					restart.volume = 1;
+					//szenen Wechsel
+					sceneFore.style["background"] = "";
+					switchScene(Math.abs(scene - 1) % scenes.length);
+					//Bewegung einfrieren
+					eiX = 0;
+					eiY = 0;
+					console.log("Bewegun eingefrohren");
+					//Musik Start
+					audioPlayer.play();
+					audioPlayer.volume = 0.3;
+					sky.play();
+					audioPlayer.currentTime = 0;
+					sky.volume = 1;
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1280,
+				y: 350,
+				w: 30,
+				h: 800,
 				trigger: () => {
 					//Musik Stop
 					sky.pause();

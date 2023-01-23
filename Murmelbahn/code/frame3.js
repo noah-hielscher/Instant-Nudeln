@@ -74,7 +74,7 @@ function scene3() {
 					staub.play();
 					ei.attributes.image = black;
 					sceneEffect.style["background"] =
-						'url("./Frame3/staubeffect.png") no-repeat';
+						'url("./frame3/staubeffect.png") no-repeat';
 				},
 			},
 			{ isSensor: true, isStatic: true, angle: PI / -15 }

@@ -30,7 +30,7 @@ function scene7() {
 				h: 100,
 				trigger: () => {
 					sceneEffect.style["background"] =
-						'url("./Frame7/splash.png") no-repeat';
+						'url("./frame7/splash.png") no-repeat';
 					watersplash.play();
 					watersplash.volume = 0.7;
 				},

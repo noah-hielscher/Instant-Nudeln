@@ -30,7 +30,7 @@ let eiX = 0.04;
 let eiY = -0.02;
 
 //Objects in the Kitchen
-let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
+let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b, object1;
 
 //Musik an
 let musikan = 0;
@@ -51,6 +51,7 @@ function preload() {
 	brett2bImage = loadImage("./frame6/brett4.png");
 	brett3aImage = loadImage("./frame6/brett5.png");
 	brett3bImage = loadImage("./frame6/brett6.png");
+	ObjectImage  = loadImage("./frame5/Group 71test-salz.png");
 }
 
 function setup() {

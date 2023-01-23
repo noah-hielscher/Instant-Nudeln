@@ -1,3 +1,5 @@
+// Herd mit Ei in der Pfanne
+
 function scene9() {
 	sceneBack.style["background"] = 'url("./frame9/background.png") no-repeat';
 	sceneFore.style["background"] = "";

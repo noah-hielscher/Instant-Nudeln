@@ -1,3 +1,5 @@
+//Himmel mit Wolken
+
 function scene1() {
 	sceneBack.style["background"] = 'url("./frame1/background.png") no-repeat';
 	sceneFore.style["background"] = "";

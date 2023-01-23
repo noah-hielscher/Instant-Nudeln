@@ -1,3 +1,5 @@
+//Himmel mit Schornstein
+
 function scene2() {
 	sceneBack.style["background"] = 'url("./frame2/background.png") no-repeat';
 	sceneFore.style["background"] = 'url("./frame2/Schornstein.png") no-repeat';

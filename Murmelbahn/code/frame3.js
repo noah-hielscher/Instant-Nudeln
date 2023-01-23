@@ -1,3 +1,5 @@
+// Im Schornstein mit Rußwolken
+
 function scene3() {
 	sceneBack.style["background"] = 'url("./Frame3/background.png") no-repeat';
 	sceneFore.style["background"] = 'url("./Frame3/staub1.png") no-repeat';

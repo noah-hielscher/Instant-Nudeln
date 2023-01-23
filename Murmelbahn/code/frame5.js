@@ -1,3 +1,5 @@
+//Küche mit Regalen
+
 function scene5() {
 	sceneBack.style["background"] = 'url("./frame5/background.png") no-repeat';
 	sceneFore.style["background"] = "";

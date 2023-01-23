@@ -1,3 +1,5 @@
+//Abwasserrohr
+
 function scene7() {
 	sceneBack.style["background"] = 'url("./frame7/background.png") no-repeat';
 	sceneFore.style["background"] = "";

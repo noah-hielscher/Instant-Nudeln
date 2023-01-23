@@ -1,3 +1,5 @@
+// Küche mit Regalen und Abflussschacht
+
 function scene6() {
 	sceneBack.style["background"] = 'url("./frame6/background.png") no-repeat';
 	sceneFore.style["background"] = "";

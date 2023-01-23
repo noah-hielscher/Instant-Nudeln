@@ -81,8 +81,6 @@ function setup() {
 
 	// add a mouse so that we can manipulate Matter objects
 	mouse = new Mouse(engine, canvas, { stroke: "blue", strokeWeight: 3 });
-	// const mouseScale = 1 + (1 / (scale / (1 - scale)))
-	// Mouse.setScale(mouse, { x: mouseScale, y: mouseScale });
 
 	// process mouseup events in order to drag objects or add more balls
 	mouse.on("startdrag", (evt) => {
@@ -114,7 +112,7 @@ function setup() {
 		isDrag = false;
 	});
 
-	// process collisions - check whether block "Murmel" hits another Block
+	// process collisions - checkt mit was die Murmel zusammenstößt
 	Events.on(engine, "collisionStart", function (event) {
 		var pairs = event.pairs;
 		pairs.forEach((pair, i) => {
@@ -137,11 +135,11 @@ function setup() {
 
 function switchScene(newScene) {
 	console.log("Scene", newScene);
-	// cleanup of all blocks in the old scene
+	// alle Blocks werden gelöscht
 	blocks.forEach((block) => Matter.World.remove(world, block.body));
 	blocks = [];
 
-	// activate the new scene
+	// neue Scene wird aktiviert
 	scene = newScene;
 	scenes[scene]();
 }
@@ -149,7 +147,7 @@ function switchScene(newScene) {
 function draw() {
 	clear();
 	blocks.forEach((block) => block.draw());
-	//Magnet
+	//Magnet wird nur in scene 7 aktiviert
 	if (scene == 7 && ei.body) {
 		magnet.addAttracted(ei.body);
 		magnet.attract();
@@ -157,7 +155,7 @@ function draw() {
 	}
 	ei.draw();
 
-	//Vogelfliegen
+	//Vogelfliegen wird nur in der ersten Scene aktiviert
 	if (scene == 0 && Vogeldraw && Vogeldraw.body) {
 		Vogeldraw.draw();
 		for (let i = 1200; i >= 200; i--) {
@@ -178,8 +176,10 @@ function onKeyDown(event) {
 			console.log("SPACE");
 			jump.play();
 			jump.volume = 0.2;
+			//Maximale Höhe erreicht
 			if (ei.body.velocity.y < -3.96) {
 			}
+			//Höhe nimmt zu
 			if (ei.body.velocity.y > -3.96) {
 				event.preventDefault();
 				Matter.Body.applyForce(ei.body, ei.body.position, {
@@ -197,6 +197,7 @@ function onKeyDown(event) {
 		default:
 			console.log(event.key);
 	}
+	//Musik wird nur beim ersten Mal Spacebar aktiviert
 	if (musikan == 0) {
 		console.log("Musik wird abgespielt");
 		audioPlayer.play();

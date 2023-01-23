@@ -1,3 +1,5 @@
+// Küche Arbeitsplatte
+
 function scene8() {
 	sceneBack.style["background"] = 'url("./frame8/background.png") no-repeat';
 	sceneFore.style["background"] = 'url("./frame8/Person.png") no-repeat';

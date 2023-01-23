@@ -201,12 +201,13 @@ function onKeyDown(event) {
 				});
 			}
 			break;
-		case "n":
-			switchScene((scene + 1) % scenes.length);
-			break;
-		case "p":
-			switchScene(Math.abs(scene - 1) % scenes.length);
-			break;
+		//Mit n und p kann man die Szenen wechseln
+		//case "n":
+		//	switchScene((scene + 1) % scenes.length);
+		//	break;
+		//case "p":
+		//	switchScene(Math.abs(scene - 1) % scenes.length);
+		//	break;
 		default:
 			console.log(event.key);
 	}

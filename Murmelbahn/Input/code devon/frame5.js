@@ -120,6 +120,37 @@ function scene5() {
 
 	blocks.push(brett1b);
 
+	//object1 = new PolygonFromSVG(
+	//	world,
+	//	{
+	//		x: 970,
+	//		y: 100,
+	//		image: ObjectImage,
+	//		fromFile: "./frame5/Vector 685test-salz.svg",
+	//		scale: 1,
+	//		color: "red",
+	//	},
+	//	{ isStatic: false, density: 0.001}
+	//);
+	
+	//blocks.push(object1);
+	
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 950,
+				y: 100,
+				w: 15,
+				h: 30,
+				color: "yellow",
+				image: ObjectImage,
+			},
+			{isStatic: false, density: 0.001}
+		)
+	);
+
+
 	//Brett Halterung
 	blocks.push(
 		new BlockCore(

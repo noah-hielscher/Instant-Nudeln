@@ -100,13 +100,16 @@ function scene2() {
 					//szenen Wechsel
 					sceneFore.style["background"] = "";
 					switchScene(Math.abs(scene - 1) % scenes.length);
+					//Bewegung einfrieren
+					eiX = 0;
+					eiY = 0;
+					console.log("Bewegun eingefrohren");
 					//Musik Start
 					audioPlayer.play();
 					audioPlayer.volume = 0.3;
 					sky.play();
 					audioPlayer.currentTime = 0;
 					sky.volume = 1;
-					v;
 				},
 			},
 			{ isSensor: true, isStatic: true }
@@ -129,6 +132,10 @@ function scene2() {
 					//szenen Wechsel
 					sceneFore.style["background"] = "";
 					switchScene(Math.abs(scene - 1) % scenes.length);
+					//Bewegung einfrieren
+					eiX = 0;
+					eiY = 0;
+					console.log("Bewegun eingefrohren");
 					//Musik Start
 					audioPlayer.play();
 					audioPlayer.volume = 0.3;

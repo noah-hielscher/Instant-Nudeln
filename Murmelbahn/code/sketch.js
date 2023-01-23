@@ -33,7 +33,7 @@ let sceneBack, sceneFore;
 let magnet;
 
 //Ei Statusse
-let statusNormal, black, cracked, crackedblack, blase, crackedOpen, done;
+let statusNormal, black, cracked, crackedblack, blase, crackedOpen, done, grey;
 let ei;
 let zweitesEi;
 //Ei Bewegung
@@ -61,6 +61,7 @@ function preload() {
 	blase = loadImage("./eggState/blase.png");
 	crackedOpen = loadImage("./eggState/crackedOpen.png");
 	done = loadImage("./eggState/done.png");
+	grey = loadImage("./eggState/grey.png");
 	//preloading - Objects in the Kitchen
 	brett1aImage = loadImage("./frame5/brett1.png");
 	brett1bImage = loadImage("./frame5/brett2.png");
@@ -138,6 +139,9 @@ function switchScene(newScene) {
 	// alle Blocks werden gelöscht
 	blocks.forEach((block) => Matter.World.remove(world, block.body));
 	blocks = [];
+	if (ei) {
+		Matter.World.remove(world, ei.body);
+	}
 
 	// neue Scene wird aktiviert
 	scene = newScene;

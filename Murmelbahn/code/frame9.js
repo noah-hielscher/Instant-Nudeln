@@ -8,18 +8,18 @@ function scene9() {
 	//engine.gravity.x = 0;
 	engine.gravity.y = 0.7;
 
-	eiX = 0.05;
-	eiY = -0.04;
+	eiX = 0.08;
+	eiY = -0.07;
 
 	// Ei
 	ei = new PolygonFromSVG(
 		world,
 		{
 			x: 20,
-			y: 500,
+			y: 480,
 			image: cracked,
 			fromFile: "./eggState/pathei.svg",
-			scale: 1,
+			scale: 1.5,
 		},
 		{ label: "Murmel", isStatic: false, friction: 0.1, density: 0.001 }
 	);
@@ -30,9 +30,9 @@ function scene9() {
 		{
 			x: 920,
 			y: 300,
-			image: cracked,
+			image: grey,
 			fromFile: "./eggState/pathei.svg",
-			scale: 1,
+			scale: 1.5,
 		},
 		{ isStatic: false, friction: 0.1, density: 0.001 }
 	);
@@ -43,7 +43,7 @@ function scene9() {
 		new PolygonFromSVG(
 			world,
 			{
-				x: 370,
+				x: 350,
 				y: 550,
 				fromFile: "./frame9/kochloeffel.svg",
 				scale: 1,
@@ -67,7 +67,7 @@ function scene9() {
 					ziel.play();
 					//Bildtausch Ei
 					ei.attributes.image = done;
-					ei.attributes.scale = 1.3;
+					ei.attributes.scale = 1.7;
 					//Bewegung Spacebar wird ausgeschalten
 					engine.gravity.y = 1;
 					ei.options.isStatic = true;
@@ -79,6 +79,25 @@ function scene9() {
 				},
 			},
 			{ isSensor: false, isStatic: true }
+		)
+	);
+
+	//Path fürs Haupt Ei
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 750,
+				y: 500,
+				w: 20,
+				h: 400,
+			},
+			{
+				isStatic: true,
+				isSensor: false,
+				restitution: 0.5,
+				friction: 0.001,
+			}
 		)
 	);
 
@@ -97,7 +116,7 @@ function scene9() {
 				isSensor: false,
 				restitution: 0.5,
 				friction: 0.001,
-				angle: -PI / -20,
+				angle: -PI / -16,
 			}
 		)
 	);

@@ -42,7 +42,7 @@ let eiY = 0;
 
 //Objects in the Kitchen
 let brett1a, brett1b, brett2a, brett2b, brett3a, brett3b;
-
+let SaltImage, PepperImage, OilImage;
 //Vogel
 let vogel;
 
@@ -69,6 +69,9 @@ function preload() {
 	brett2bImage = loadImage("./frame6/brett4.png");
 	brett3aImage = loadImage("./frame6/brett5.png");
 	brett3bImage = loadImage("./frame6/brett6.png");
+	SaltImage = loadImage("./frame5/Salt.png");
+	PepperImage = loadImage("./frame5/Pepper.png");
+	OilImage = loadImage("./frame5/Oil.png");
 	//Vogel
 	vogel = loadImage("./frame1/Vogel.png");
 }

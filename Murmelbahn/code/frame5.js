@@ -151,6 +151,38 @@ function scene5() {
 		)
 	);
 
+	//Objekte
+
+	blocks.push(
+		new Block(world, {
+			x: 730,
+			y: 230,
+			w: 30,
+			h: 35,
+			image: SaltImage,
+		})
+	);
+
+	blocks.push(
+		new Block(world, {
+			x: 750,
+			y: 230,
+			w: 30,
+			h: 35,
+			image: PepperImage,
+		})
+	);
+
+	blocks.push(
+		new Block(world, {
+			x: 950,
+			y: 140,
+			w: 30,
+			h: 60,
+			image: OilImage,
+		})
+	);
+
 	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(

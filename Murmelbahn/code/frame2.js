@@ -160,7 +160,7 @@ function scene2() {
 				w: 330,
 				h: 40,
 				trigger: () => {
-					switchScene((scene + 1) % scenes.length);
+					switchScene(2);
 					sky.pause();
 				},
 			},

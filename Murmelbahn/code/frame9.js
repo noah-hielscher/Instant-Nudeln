@@ -120,21 +120,4 @@ function scene9() {
 			}
 		)
 	);
-
-	//Automatischer Szenenwechsler
-	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: 1280,
-				y: 400,
-				w: 20,
-				h: 900,
-				trigger: () => {
-					switchScene((scene + 1) % scenes.length);
-				},
-			},
-			{ isSensor: true, isStatic: true }
-		)
-	);
 }

@@ -165,7 +165,7 @@ function scene6() {
 				w: 140,
 				h: 100,
 				trigger: () => {
-					switchScene((scene + 1) % scenes.length);
+					switchScene(6);
 					abwasser.play();
 					abwasser.volume = 0.8;
 				},

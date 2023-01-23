@@ -26,7 +26,7 @@ let scenes = [
 	scene8,
 	scene9,
 ];
-let scene = 0;
+let scene;
 let sceneBack, sceneFore;
 
 //Magnet
@@ -139,8 +139,14 @@ function setup() {
 
 function switchScene(newScene) {
 	console.log("Scene", newScene);
+	if (newScene == scene) {
+		return;
+	}
 	// alle Blocks werden gelöscht
-	blocks.forEach((block) => Matter.World.remove(world, block.body));
+	blocks.forEach((block) => {
+		//console.log(block);
+		Matter.World.remove(world, block.body);
+	});
 	blocks = [];
 	//Da das Ei nicht in den Blocks ist, wird es ebenfalls etnfernt, soweit eins existiert
 	if (ei) {

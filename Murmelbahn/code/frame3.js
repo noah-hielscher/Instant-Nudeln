@@ -119,7 +119,7 @@ function scene3() {
 				w: 300,
 				h: 40,
 				trigger: () => {
-					switchScene((scene + 1) % scenes.length);
+					switchScene(3);
 				},
 			},
 			{ isSensor: true, isStatic: true }

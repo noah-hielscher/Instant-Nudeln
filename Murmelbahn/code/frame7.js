@@ -133,7 +133,7 @@ function scene7() {
 				w: 250,
 				h: 15,
 				trigger: () => {
-					switchScene((scene + 1) % scenes.length);
+					switchScene(7);
 					abwasser.pause();
 					kitchen.play();
 					kitchen.volume = 0.9;

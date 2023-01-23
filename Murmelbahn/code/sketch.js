@@ -139,10 +139,10 @@ function switchScene(newScene) {
 	// alle Blocks werden gelöscht
 	blocks.forEach((block) => Matter.World.remove(world, block.body));
 	blocks = [];
+	//Da das Ei nicht in den Blocks ist, wird es ebenfalls etnfernt, soweit eins existiert
 	if (ei) {
 		Matter.World.remove(world, ei.body);
 	}
-
 	// neue Scene wird aktiviert
 	scene = newScene;
 	scenes[scene]();

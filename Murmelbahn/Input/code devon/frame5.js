@@ -119,34 +119,45 @@ function scene5() {
 	);
 
 	blocks.push(brett1b);
+	
+	//Objekte
 
-	//object1 = new PolygonFromSVG(
-	//	world,
-	//	{
-	//		x: 970,
-	//		y: 100,
-	//		image: ObjectImage,
-	//		fromFile: "./frame5/Vector 685test-salz.svg",
-	//		scale: 1,
-	//		color: "red",
-	//	},
-	//	{ isStatic: false, density: 0.001}
-	//);
-	
-	//blocks.push(object1);
-	
 	blocks.push(
-		new BlockCore(
-			world,
-			{
-				x: 950,
-				y: 100,
-				w: 15,
-				h: 30,
-				color: "yellow",
-				image: ObjectImage,
-			},
-			{isStatic: false, density: 0.001}
+		new Block(
+			world, 
+			{ 
+				x: 730, 
+				y: 200, 
+				w: 30, 
+				h: 35, 
+				image: SaltImage 
+			}
+		)
+	);
+
+	blocks.push(
+		new Block(
+			world, 
+			{ 
+				x: 750, 
+				y: 200, 
+				w: 30, 
+				h: 35, 
+				image: PepperImage 
+			}
+		)
+	);
+
+	blocks.push(
+		new Block(
+			world, 
+			{ 
+				x: 950, 
+				y: 100, 
+				w: 30, 
+				h: 60, 
+				image: OilImage 
+			}
 		)
 	);
 

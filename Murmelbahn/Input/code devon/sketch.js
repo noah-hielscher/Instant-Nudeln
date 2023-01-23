@@ -51,7 +51,9 @@ function preload() {
 	brett2bImage = loadImage("./frame6/brett4.png");
 	brett3aImage = loadImage("./frame6/brett5.png");
 	brett3bImage = loadImage("./frame6/brett6.png");
-	ObjectImage  = loadImage("./frame5/Group 71test-salz.png");
+	SaltImage  = loadImage("./frame5/Salt.png");
+	PepperImage  = loadImage("./frame5/Pepper.png");
+	OilImage  = loadImage("./frame5/Oil.png");
 }
 
 function setup() {

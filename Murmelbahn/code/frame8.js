@@ -5,9 +5,11 @@ function scene8() {
 	sceneFore.style["background"] = 'url("./frame8/Person.png") no-repeat';
 	sceneEffect.style["background"] = "";
 
-	//Ei Hüpfen & Physik auf normal
-	eiX = 0.04;
-	eiY = -0.04;
+	//Bewegung wird eingefrohren
+	eiX = 0;
+	eiY = 0;
+
+	//Gravity ausgestellt
 	engine.gravity.y = 0;
 
 	//ei
@@ -54,6 +56,9 @@ function scene8() {
 				magnet.attributes.attraction = 0.0;
 				//Gravity wird zurückgestellt
 				engine.gravity.y = 1;
+				// Bewegung reaktiviert
+				eiX = 0.04;
+				eiY = -0.04;
 			},
 		},
 		{ isStatic: true }

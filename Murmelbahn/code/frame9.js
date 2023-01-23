@@ -100,6 +100,21 @@ function scene9() {
 			}
 		)
 	);
+	//Border Start
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 0,
+				y: 500,
+				w: 20,
+				h: 400,
+			},
+			{
+				isStatic: true,
+			}
+		)
+	);
 
 	//Path fürs zweite Ei
 	blocks.push(

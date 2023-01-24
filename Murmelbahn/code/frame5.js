@@ -151,8 +151,7 @@ function scene5() {
 		)
 	);
 
-	//Objekte
-
+	//Objekt Salzstreuer
 	blocks.push(
 		new Block(world, {
 			x: 730,
@@ -162,7 +161,7 @@ function scene5() {
 			image: SaltImage,
 		})
 	);
-
+	//Objekt Pfeffer
 	blocks.push(
 		new Block(world, {
 			x: 750,
@@ -172,7 +171,7 @@ function scene5() {
 			image: PepperImage,
 		})
 	);
-
+	//Objekt Oel
 	blocks.push(
 		new Block(world, {
 			x: 950,
@@ -181,6 +180,20 @@ function scene5() {
 			h: 60,
 			image: OilImage,
 		})
+	);
+	//Objekt Oel
+	blocks.push(
+		new Block(
+			world,
+			{
+				x: 575,
+				y: 300,
+				w: 40,
+				h: 50,
+				image: OilImage,
+			},
+			{ angle: PI / 12, isStatic: true }
+		)
 	);
 
 	//Automatischer Szenen wechsler

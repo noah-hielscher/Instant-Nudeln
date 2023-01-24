@@ -5,7 +5,29 @@ function scene3() {
 	sceneFore.style["background"] = 'url("./frame3/staub1.png") no-repeat';
 
 	let kamin1;
+	//Bewegung eingefrohren
+	eiX = 0;
+	eiY = 0;
 
+	//Erst wenn das Ei die erste Kurve gerutscht ist
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 500,
+				y: 250,
+				w: 500,
+				h: 40,
+				trigger: () => {
+					//Die Bewegung wird freigestellt
+					eiX = 0.04;
+					eiY = -0.04;
+					console.log("spacebar aktive");
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 	//ei
 	ei = new PolygonFromSVG(
 		world,

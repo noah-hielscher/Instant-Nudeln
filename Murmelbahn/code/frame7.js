@@ -4,8 +4,28 @@ function scene7() {
 	sceneBack.style["background"] = 'url("./frame7/background.png") no-repeat';
 	sceneFore.style["background"] = "";
 	//Ei Hüpfen wir erstärkt
-	eiX = 0.04;
-	eiY = -0.04;
+	eiX = 0;
+	eiY = 0;
+
+	//Erst wenn das Ei den ersten Kanal Boden brührt
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 150,
+				y: 150,
+				w: 200,
+				h: 40,
+				trigger: () => {
+					//Die Bewegung wird freigestellt
+					eiX = 0.04;
+					eiY = -0.04;
+					console.log("spacebar aktive");
+				},
+			},
+			{ isSensor: true, isStatic: true }
+		)
+	);
 
 	//ei
 	ei = new PolygonFromSVG(

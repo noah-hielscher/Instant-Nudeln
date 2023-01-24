@@ -155,6 +155,36 @@ function scene6() {
 			{ isStatic: true, restitution: 0.5, friction: 0.001 }
 		)
 	);
+	//Blocker beim Besen
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1280,
+				y: 400,
+				w: 40,
+				h: 800,
+			},
+			{ isStatic: true, restitution: 0.5, friction: 0.001 }
+		)
+	);
+	blocks.push(
+		new BlockCore(
+			world,
+			{
+				x: 1240,
+				y: 550,
+				w: 40,
+				h: 400,
+			},
+			{
+				isStatic: true,
+				restitution: 0.5,
+				friction: 0.001,
+				angle: PI / 15,
+			}
+		)
+	);
 	//Automatischer Szenen wechsler
 	blocks.push(
 		new BlockCore(

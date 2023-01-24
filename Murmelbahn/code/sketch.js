@@ -84,37 +84,37 @@ function setup() {
 	world = engine.world;
 
 	// add a mouse so that we can manipulate Matter objects
-	//mouse = new Mouse(engine, canvas, { stroke: "blue", strokeWeight: 3 });
+	mouse = new Mouse(engine, canvas, { stroke: "blue", strokeWeight: 3 });
 	//
 	// process mouseup events in order to drag objects or add more balls
-	//mouse.on("startdrag", (evt) => {
-	//	isDrag = true;
-	//});
-	//mouse.on("mouseup", (evt) => {
-	//	if (!isDrag) {
-	//		let ball = new Ball(
-	//			world,
-	//			{
-	//				x: evt.mouse.position.x,
-	//				y: evt.mouse.position.y,
-	//				r: 15,
-	//				color: "yellow",
-	//			},
-	//			{
-	//				isStatic: false,
-	//				restitution: 0.9,
-	//				label: "Murmel",
-	//				density: 0.5,
-	//			}
-	//		);
-	//		Matter.Body.applyForce(ball.body, ball.body.position, {
-	//			x: 0.2,
-	//			y: -2,
-	//		});
-	//		blocks.push(ball);
-	//	}
-	//	isDrag = false;
-	//});
+	mouse.on("startdrag", (evt) => {
+		isDrag = true;
+	});
+	mouse.on("mouseup", (evt) => {
+		if (!isDrag) {
+			let ball = new Ball(
+				world,
+				{
+					x: evt.mouse.position.x,
+					y: evt.mouse.position.y,
+					r: 15,
+					color: "yellow",
+				},
+				{
+					isStatic: false,
+					restitution: 0.9,
+					label: "Murmel",
+					density: 0.5,
+				}
+			);
+			Matter.Body.applyForce(ball.body, ball.body.position, {
+				x: 0.2,
+				y: -2,
+			});
+			blocks.push(ball);
+		}
+		isDrag = false;
+	});
 
 	// process collisions - checkt mit was die Murmel zusammenstößt
 	Events.on(engine, "collisionStart", function (event) {
@@ -202,12 +202,12 @@ function onKeyDown(event) {
 			}
 			break;
 		//Mit n und p kann man die Szenen wechseln
-		//case "n":
-		//	switchScene((scene + 1) % scenes.length);
-		//	break;
-		//case "p":
-		//	switchScene(Math.abs(scene - 1) % scenes.length);
-		//	break;
+		case "n":
+			switchScene((scene + 1) % scenes.length);
+			break;
+		case "p":
+			switchScene(Math.abs(scene - 1) % scenes.length);
+			break;
 		default:
 			console.log(event.key);
 	}
